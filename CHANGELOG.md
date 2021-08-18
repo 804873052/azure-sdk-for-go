@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## `v56.3.0`
+
+### New Packages
+
+- `github.com/Azure/azure-sdk-for-go/services/purview/mgmt/2021-07-01/purview`
+
 ## `v56.2.0`
 
 ### New Packages
@@ -12,7 +18,7 @@
 
 | Package Path | Changelog |
 | :--- | :---: |
-| `github.com/Azure/azure-sdk-for-go/services/datafactory/mgmt/2018-06-01/datafactory` | [details](https://github.com/Azure/azure-sdk-for-go/tree/master/services/datafactory/mgmt/2018-06-01/datafactory/CHANGELOG.md) |
+| `github.com/Azure/azure-sdk-for-go/services/datafactory/mgmt/2018-06-01/datafactory` | [details](https://github.com/Azure/azure-sdk-for-go/blob/v56.2.0/services/datafactory/mgmt/2018-06-01/datafactory/CHANGELOG.md) |
 
 ## `v56.1.0`
 
