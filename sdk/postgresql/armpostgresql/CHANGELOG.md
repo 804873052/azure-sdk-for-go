@@ -1,3 +1,742 @@
 # Release History
 
+## v0.2.0 (released)
+### Breaking Changes
+
+- Function `NewConfigurationsClient` parameter(s) have been changed from `(*armcore.Connection, string)` to `(*connection, string)`
+- Function `*FirewallRulesClient.ListByServer` parameter(s) have been changed from `(context.Context, string, string, *FirewallRulesListByServerOptions)` to `(string, string, *FirewallRulesListByServerOptions)`
+- Function `*FirewallRulesClient.ListByServer` return value(s) have been changed from `(FirewallRulesListByServerResponse, error)` to `(*FirewallRulesListByServerPager)`
+- Function `*ServersClient.ListByResourceGroup` parameter(s) have been changed from `(context.Context, string, *ServersListByResourceGroupOptions)` to `(string, *ServersListByResourceGroupOptions)`
+- Function `*ServersClient.ListByResourceGroup` return value(s) have been changed from `(ServersListByResourceGroupResponse, error)` to `(*ServersListByResourceGroupPager)`
+- Function `*DatabasesClient.ListByServer` parameter(s) have been changed from `(context.Context, string, string, *DatabasesListByServerOptions)` to `(string, string, *DatabasesListByServerOptions)`
+- Function `*DatabasesClient.ListByServer` return value(s) have been changed from `(DatabasesListByServerResponse, error)` to `(*DatabasesListByServerPager)`
+- Function `NewCheckNameAvailabilityClient` parameter(s) have been changed from `(*armcore.Connection, string)` to `(*connection, string)`
+- Function `*ServersClient.BeginUpdate` parameter(s) have been changed from `(context.Context, string, string, ServerUpdateParameters, *ServersBeginUpdateOptions)` to `(context.Context, string, string, ServerForUpdate, *ServersBeginUpdateOptions)`
+- Function `*ConfigurationsClient.ListByServer` parameter(s) have been changed from `(context.Context, string, string, *ConfigurationsListByServerOptions)` to `(string, string, *ConfigurationsListByServerOptions)`
+- Function `*ConfigurationsClient.ListByServer` return value(s) have been changed from `(ConfigurationsListByServerResponse, error)` to `(*ConfigurationsListByServerPager)`
+- Function `*ServersClient.BeginCreate` parameter(s) have been changed from `(context.Context, string, string, ServerForCreate, *ServersBeginCreateOptions)` to `(context.Context, string, string, Server, *ServersBeginCreateOptions)`
+- Function `NewFirewallRulesClient` parameter(s) have been changed from `(*armcore.Connection, string)` to `(*connection, string)`
+- Function `NewServersClient` parameter(s) have been changed from `(*armcore.Connection, string)` to `(*connection, string)`
+- Function `NewDatabasesClient` parameter(s) have been changed from `(*armcore.Connection, string)` to `(*connection, string)`
+- Function `*ServersClient.List` parameter(s) have been changed from `(context.Context, *ServersListOptions)` to `(*ServersListOptions)`
+- Function `*ServersClient.List` return value(s) have been changed from `(ServersListResponse, error)` to `(*ServersListPager)`
+- Function `NewOperationsClient` parameter(s) have been changed from `(*armcore.Connection)` to `(*connection)`
+- Type of `ServersDeletePollerResponse.Poller` has been changed from `ServersDeletePoller` to `*ServersDeletePoller`
+- Type of `FirewallRulesDeletePollerResponse.Poller` has been changed from `FirewallRulesDeletePoller` to `*FirewallRulesDeletePoller`
+- Type of `ServersCreatePollerResponse.Poller` has been changed from `ServersCreatePoller` to `*ServersCreatePoller`
+- Type of `ConfigurationProperties.DataType` has been changed from `*string` to `*ConfigurationDataType`
+- Type of `FirewallRulesCreateOrUpdatePollerResponse.Poller` has been changed from `FirewallRulesCreateOrUpdatePoller` to `*FirewallRulesCreateOrUpdatePoller`
+- Type of `ServersRestartPollerResponse.Poller` has been changed from `ServersRestartPoller` to `*ServersRestartPoller`
+- Type of `ServersUpdatePollerResponse.Poller` has been changed from `ServersUpdatePoller` to `*ServersUpdatePoller`
+- Type of `DatabasesDeletePollerResponse.Poller` has been changed from `DatabasesDeletePoller` to `*DatabasesDeletePoller`
+- Const `ServerSecurityAlertPolicyStateEnabled` has been removed
+- Const `PrivateLinkServiceConnectionStateActionsRequireNone` has been removed
+- Const `ServerVersionTen2` has been removed
+- Const `ServerVersionTen0` has been removed
+- Const `InfrastructureEncryptionEnabled` has been removed
+- Const `PublicNetworkAccessEnumDisabled` has been removed
+- Const `SecurityAlertPolicyNameDefault` has been removed
+- Const `ServerSecurityAlertPolicyStateDisabled` has been removed
+- Const `StorageAutogrowEnabled` has been removed
+- Const `PrivateEndpointProvisioningStateFailed` has been removed
+- Const `MinimalTLSVersionEnumTLSEnforcementDisabled` has been removed
+- Const `GeoRedundantBackupEnabled` has been removed
+- Const `MinimalTLSVersionEnumTLS12` has been removed
+- Const `CreateModeReplica` has been removed
+- Const `PrivateEndpointProvisioningStateApproving` has been removed
+- Const `PrivateEndpointProvisioningStateRejecting` has been removed
+- Const `ServerStateInaccessible` has been removed
+- Const `GeoRedundantBackupDisabled` has been removed
+- Const `PublicNetworkAccessEnumEnabled` has been removed
+- Const `InfrastructureEncryptionDisabled` has been removed
+- Const `PrivateLinkServiceConnectionStateStatusApproved` has been removed
+- Const `CreateModeGeoRestore` has been removed
+- Const `MinimalTLSVersionEnumTLS11` has been removed
+- Const `VirtualNetworkRuleStateInitializing` has been removed
+- Const `VirtualNetworkRuleStateDeleting` has been removed
+- Const `SSLEnforcementEnumDisabled` has been removed
+- Const `VirtualNetworkRuleStateInProgress` has been removed
+- Const `PrivateEndpointProvisioningStateReady` has been removed
+- Const `ServerVersionNine5` has been removed
+- Const `VirtualNetworkRuleStateReady` has been removed
+- Const `IdentityTypeSystemAssigned` has been removed
+- Const `StorageAutogrowDisabled` has been removed
+- Const `SKUTierBasic` has been removed
+- Const `PrivateLinkServiceConnectionStateStatusRejected` has been removed
+- Const `ServerKeyTypeAzureKeyVault` has been removed
+- Const `PrivateLinkServiceConnectionStateStatusDisconnected` has been removed
+- Const `ServerVersionTen` has been removed
+- Const `SSLEnforcementEnumEnabled` has been removed
+- Const `PrivateEndpointProvisioningStateDropping` has been removed
+- Const `PrivateLinkServiceConnectionStateStatusPending` has been removed
+- Const `VirtualNetworkRuleStateUnknown` has been removed
+- Const `ServerVersionNine6` has been removed
+- Const `MinimalTLSVersionEnumTLS10` has been removed
+- Function `LogFileProperties.MarshalJSON` has been removed
+- Function `TagsObject.MarshalJSON` has been removed
+- Function `*serverKeysListPager.NextPage` has been removed
+- Function `*serverKeysDeletePoller.Done` has been removed
+- Function `*privateEndpointConnectionsUpdateTagsPoller.Poll` has been removed
+- Function `*RecoverableServersClient.Get` has been removed
+- Function `*privateEndpointConnectionsDeletePoller.Poll` has been removed
+- Function `ServerAdministratorResource.MarshalJSON` has been removed
+- Function `*serverParametersListUpdateConfigurationsPoller.Done` has been removed
+- Function `*serverAdministratorsDeletePoller.FinalResponse` has been removed
+- Function `LogFileListResult.MarshalJSON` has been removed
+- Function `*PrivateLinkResourcesClient.ListByServer` has been removed
+- Function `*PrivateEndpointConnectionsClient.BeginUpdateTags` has been removed
+- Function `*VirtualNetworkRulesClient.ResumeDelete` has been removed
+- Function `*serverSecurityAlertPoliciesListByServerPager.NextPage` has been removed
+- Function `*privateLinkResourcesListByServerPager.Err` has been removed
+- Function `PossibleMinimalTLSVersionEnumValues` has been removed
+- Function `*ConfigurationsClient.ResumeCreateOrUpdate` has been removed
+- Function `*PrivateLinkResourcesClient.Get` has been removed
+- Function `*PrivateEndpointConnectionsClient.ResumeCreateOrUpdate` has been removed
+- Function `*serverSecurityAlertPoliciesListByServerPager.Err` has been removed
+- Function `*databasesCreateOrUpdatePoller.Done` has been removed
+- Function `PerformanceTierProperties.MarshalJSON` has been removed
+- Function `*privateEndpointConnectionsUpdateTagsPoller.Done` has been removed
+- Function `*PrivateEndpointConnectionsClient.ResumeUpdateTags` has been removed
+- Function `PossiblePrivateLinkServiceConnectionStateActionsRequireValues` has been removed
+- Function `*serverSecurityAlertPoliciesCreateOrUpdatePoller.Poll` has been removed
+- Function `VirtualNetworkRule.MarshalJSON` has been removed
+- Function `*serverKeysListPager.PageResponse` has been removed
+- Function `*PrivateEndpointConnectionsClient.BeginCreateOrUpdate` has been removed
+- Function `NewServerAdministratorsClient` has been removed
+- Function `*PrivateEndpointConnectionsClient.ListByServer` has been removed
+- Function `*serverKeysDeletePoller.FinalResponse` has been removed
+- Function `*serversUpdatePoller.ResumeToken` has been removed
+- Function `RecoverableServerResource.MarshalJSON` has been removed
+- Function `*ServerKeysClient.BeginDelete` has been removed
+- Function `SecurityAlertPolicyName.ToPtr` has been removed
+- Function `*databasesCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*ServerParametersClient.ResumeListUpdateConfigurations` has been removed
+- Function `NewLogFilesClient` has been removed
+- Function `*virtualNetworkRulesDeletePoller.ResumeToken` has been removed
+- Function `PossibleInfrastructureEncryptionValues` has been removed
+- Function `*serversDeletePoller.Done` has been removed
+- Function `*ServerForCreate.UnmarshalJSON` has been removed
+- Function `PrivateLinkServiceConnectionStateActionsRequire.ToPtr` has been removed
+- Function `*ServerAdministratorsClient.List` has been removed
+- Function `PossiblePrivateLinkServiceConnectionStateStatusValues` has been removed
+- Function `NewLocationBasedPerformanceTierClient` has been removed
+- Function `NewServerKeysClient` has been removed
+- Function `*privateLinkResourcesListByServerPager.PageResponse` has been removed
+- Function `*databasesDeletePoller.ResumeToken` has been removed
+- Function `*serversUpdatePoller.Poll` has been removed
+- Function `*serverSecurityAlertPoliciesCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `ServerPropertiesForReplica.MarshalJSON` has been removed
+- Function `*ConfigurationsClient.BeginCreateOrUpdate` has been removed
+- Function `*ReplicasClient.ListByServer` has been removed
+- Function `StorageAutogrow.ToPtr` has been removed
+- Function `*VirtualNetworkRulesClient.ResumeCreateOrUpdate` has been removed
+- Function `*firewallRulesCreateOrUpdatePoller.Poll` has been removed
+- Function `*serversCreatePoller.ResumeToken` has been removed
+- Function `*configurationsCreateOrUpdatePoller.Done` has been removed
+- Function `ServerForCreate.MarshalJSON` has been removed
+- Function `*ServerAdministratorsClient.ResumeCreateOrUpdate` has been removed
+- Function `NewRecoverableServersClient` has been removed
+- Function `*serverAdministratorsDeletePoller.Poll` has been removed
+- Function `*FirewallRulesClient.ResumeCreateOrUpdate` has been removed
+- Function `*firewallRulesDeletePoller.Poll` has been removed
+- Function `*serverKeysListPager.Err` has been removed
+- Function `*ServerPropertiesForGeoRestore.UnmarshalJSON` has been removed
+- Function `PossiblePrivateEndpointProvisioningStateValues` has been removed
+- Function `*privateEndpointConnectionsCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `*serverKeysDeletePoller.Poll` has been removed
+- Function `*PrivateEndpointConnectionsClient.BeginDelete` has been removed
+- Function `*serversRestartPoller.FinalResponse` has been removed
+- Function `*DatabasesClient.ResumeCreateOrUpdate` has been removed
+- Function `*serverSecurityAlertPoliciesCreateOrUpdatePoller.Done` has been removed
+- Function `*virtualNetworkRulesListByServerPager.NextPage` has been removed
+- Function `ServerKey.MarshalJSON` has been removed
+- Function `PossibleServerKeyTypeValues` has been removed
+- Function `*virtualNetworkRulesCreateOrUpdatePoller.Poll` has been removed
+- Function `*firewallRulesCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `PrivateEndpointConnectionListResult.MarshalJSON` has been removed
+- Function `*databasesDeletePoller.FinalResponse` has been removed
+- Function `*ServerSecurityAlertPoliciesClient.ListByServer` has been removed
+- Function `*ServerKeysClient.ResumeCreateOrUpdate` has been removed
+- Function `PossibleServerSecurityAlertPolicyStateValues` has been removed
+- Function `*firewallRulesCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*ServerKeysClient.ResumeDelete` has been removed
+- Function `*virtualNetworkRulesListByServerPager.Err` has been removed
+- Function `*configurationsCreateOrUpdatePoller.Poll` has been removed
+- Function `*configurationsCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `*firewallRulesCreateOrUpdatePoller.Done` has been removed
+- Function `NewReplicasClient` has been removed
+- Function `PrivateLinkServiceConnectionStateStatus.ToPtr` has been removed
+- Function `*privateEndpointConnectionsDeletePoller.Done` has been removed
+- Function `*privateEndpointConnectionsCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*LogFilesClient.ListByServer` has been removed
+- Function `*serversUpdatePoller.Done` has been removed
+- Function `GeoRedundantBackup.ToPtr` has been removed
+- Function `*serversDeletePoller.Poll` has been removed
+- Function `SecurityAlertPolicyProperties.MarshalJSON` has been removed
+- Function `*ServerAdministratorsClient.BeginDelete` has been removed
+- Function `*virtualNetworkRulesDeletePoller.Done` has been removed
+- Function `*privateEndpointConnectionsCreateOrUpdatePoller.Poll` has been removed
+- Function `*DatabasesClient.ResumeDelete` has been removed
+- Function `NewServerBasedPerformanceTierClient` has been removed
+- Function `PossibleSecurityAlertPolicyNameValues` has been removed
+- Function `*virtualNetworkRulesDeletePoller.Poll` has been removed
+- Function `*VirtualNetworkRulesClient.BeginDelete` has been removed
+- Function `*firewallRulesDeletePoller.FinalResponse` has been removed
+- Function `ServerSecurityAlertPolicy.MarshalJSON` has been removed
+- Function `*serverSecurityAlertPoliciesCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*databasesCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `*serverKeysCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `*ServerPropertiesForCreate.UnmarshalJSON` has been removed
+- Function `*DatabasesClient.BeginCreateOrUpdate` has been removed
+- Function `ServerPropertiesForRestore.MarshalJSON` has been removed
+- Function `PossibleSSLEnforcementEnumValues` has been removed
+- Function `*serversRestartPoller.ResumeToken` has been removed
+- Function `*privateEndpointConnectionsListByServerPager.NextPage` has been removed
+- Function `*PrivateEndpointConnectionsClient.ResumeDelete` has been removed
+- Function `*serverAdministratorsCreateOrUpdatePoller.Poll` has been removed
+- Function `*serverAdministratorsCreateOrUpdatePoller.Done` has been removed
+- Function `*VirtualNetworkRulesClient.Get` has been removed
+- Function `NewPrivateLinkResourcesClient` has been removed
+- Function `*firewallRulesDeletePoller.ResumeToken` has been removed
+- Function `*serverAdministratorsCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `PrivateLinkResourceProperties.MarshalJSON` has been removed
+- Function `ServerKeyListResult.MarshalJSON` has been removed
+- Function `*serverParametersListUpdateConfigurationsPoller.FinalResponse` has been removed
+- Function `ServerSecurityAlertPolicyListResult.MarshalJSON` has been removed
+- Function `*serverKeysDeletePoller.ResumeToken` has been removed
+- Function `ServerPropertiesForGeoRestore.MarshalJSON` has been removed
+- Function `*ServerParametersClient.BeginListUpdateConfigurations` has been removed
+- Function `*serverKeysCreateOrUpdatePoller.Done` has been removed
+- Function `ServerAdministratorResourceListResult.MarshalJSON` has been removed
+- Function `InfrastructureEncryption.ToPtr` has been removed
+- Function `*ServerAdministratorsClient.ResumeDelete` has been removed
+- Function `*ServerAdministratorsClient.Get` has been removed
+- Function `*ServerPropertiesForRestore.UnmarshalJSON` has been removed
+- Function `*ServerSecurityAlertPoliciesClient.Get` has been removed
+- Function `IdentityType.ToPtr` has been removed
+- Function `*privateEndpointConnectionsUpdateTagsPoller.FinalResponse` has been removed
+- Function `*privateLinkResourcesListByServerPager.NextPage` has been removed
+- Function `*serversCreatePoller.Done` has been removed
+- Function `*ServerKeysClient.BeginCreateOrUpdate` has been removed
+- Function `MinimalTLSVersionEnum.ToPtr` has been removed
+- Function `VirtualNetworkRuleState.ToPtr` has been removed
+- Function `*privateEndpointConnectionsDeletePoller.ResumeToken` has been removed
+- Function `*serversDeletePoller.ResumeToken` has been removed
+- Function `ServerUpdateParameters.MarshalJSON` has been removed
+- Function `PossibleVirtualNetworkRuleStateValues` has been removed
+- Function `NewPrivateEndpointConnectionsClient` has been removed
+- Function `*ServerPropertiesForCreate.GetServerPropertiesForCreate` has been removed
+- Function `*serverSecurityAlertPoliciesListByServerPager.PageResponse` has been removed
+- Function `LogFile.MarshalJSON` has been removed
+- Function `*databasesDeletePoller.Done` has been removed
+- Function `*ServerBasedPerformanceTierClient.List` has been removed
+- Function `*virtualNetworkRulesDeletePoller.FinalResponse` has been removed
+- Function `*FirewallRulesClient.ResumeDelete` has been removed
+- Function `*ServerKeysClient.List` has been removed
+- Function `*LocationBasedPerformanceTierClient.List` has been removed
+- Function `*ServersClient.ResumeDelete` has been removed
+- Function `*ServerPropertiesForReplica.UnmarshalJSON` has been removed
+- Function `*databasesDeletePoller.Poll` has been removed
+- Function `*privateEndpointConnectionsListByServerPager.PageResponse` has been removed
+- Function `ServerKeyProperties.MarshalJSON` has been removed
+- Function `PossibleGeoRedundantBackupValues` has been removed
+- Function `*ServerKeysClient.Get` has been removed
+- Function `*serversDeletePoller.FinalResponse` has been removed
+- Function `PrivateEndpointProvisioningState.ToPtr` has been removed
+- Function `NewVirtualNetworkRulesClient` has been removed
+- Function `*serversCreatePoller.Poll` has been removed
+- Function `*virtualNetworkRulesCreateOrUpdatePoller.ResumeToken` has been removed
+- Function `PublicNetworkAccessEnum.ToPtr` has been removed
+- Function `*serverKeysCreateOrUpdatePoller.Poll` has been removed
+- Function `*serversRestartPoller.Done` has been removed
+- Function `*ServerSecurityAlertPoliciesClient.BeginCreateOrUpdate` has been removed
+- Function `PossiblePublicNetworkAccessEnumValues` has been removed
+- Function `PrivateLinkResource.MarshalJSON` has been removed
+- Function `*LogFileProperties.UnmarshalJSON` has been removed
+- Function `*privateEndpointConnectionsDeletePoller.FinalResponse` has been removed
+- Function `PossibleStorageAutogrowValues` has been removed
+- Function `*ServerKeyProperties.UnmarshalJSON` has been removed
+- Function `NewServerParametersClient` has been removed
+- Function `*ServerSecurityAlertPoliciesClient.ResumeCreateOrUpdate` has been removed
+- Function `*VirtualNetworkRulesClient.BeginCreateOrUpdate` has been removed
+- Function `NewServerSecurityAlertPoliciesClient` has been removed
+- Function `*serverParametersListUpdateConfigurationsPoller.Poll` has been removed
+- Function `PrivateLinkResourceListResult.MarshalJSON` has been removed
+- Function `*serverAdministratorsDeletePoller.ResumeToken` has been removed
+- Function `*serverAdministratorsDeletePoller.Done` has been removed
+- Function `*ServersClient.ResumeCreate` has been removed
+- Function `*ServerPropertiesForDefaultCreate.UnmarshalJSON` has been removed
+- Function `*privateEndpointConnectionsCreateOrUpdatePoller.Done` has been removed
+- Function `*virtualNetworkRulesListByServerPager.PageResponse` has been removed
+- Function `ServerKeyType.ToPtr` has been removed
+- Function `*serversRestartPoller.Poll` has been removed
+- Function `*serverParametersListUpdateConfigurationsPoller.ResumeToken` has been removed
+- Function `ServerSecurityAlertPolicyState.ToPtr` has been removed
+- Function `*firewallRulesDeletePoller.Done` has been removed
+- Function `*privateEndpointConnectionsListByServerPager.Err` has been removed
+- Function `*serversUpdatePoller.FinalResponse` has been removed
+- Function `*configurationsCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*serversCreatePoller.FinalResponse` has been removed
+- Function `ServerPropertiesForDefaultCreate.MarshalJSON` has been removed
+- Function `PerformanceTierListResult.MarshalJSON` has been removed
+- Function `*databasesCreateOrUpdatePoller.Poll` has been removed
+- Function `*virtualNetworkRulesCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*PrivateEndpointConnectionsClient.Get` has been removed
+- Function `SSLEnforcementEnum.ToPtr` has been removed
+- Function `*privateEndpointConnectionsUpdateTagsPoller.ResumeToken` has been removed
+- Function `*serverAdministratorsCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*ServersClient.ResumeRestart` has been removed
+- Function `*VirtualNetworkRulesClient.ListByServer` has been removed
+- Function `VirtualNetworkRuleListResult.MarshalJSON` has been removed
+- Function `*ServersClient.ResumeUpdate` has been removed
+- Function `*serverKeysCreateOrUpdatePoller.FinalResponse` has been removed
+- Function `*virtualNetworkRulesCreateOrUpdatePoller.Done` has been removed
+- Function `PrivateEndpointConnection.MarshalJSON` has been removed
+- Function `*ServerAdministratorsClient.BeginCreateOrUpdate` has been removed
+- Function `PossibleIdentityTypeValues` has been removed
+- Struct `ConfigurationsBeginCreateOrUpdateOptions` has been removed
+- Struct `ConfigurationsCreateOrUpdatePollerResponse` has been removed
+- Struct `ConfigurationsCreateOrUpdateResponse` has been removed
+- Struct `ConfigurationsCreateOrUpdateResult` has been removed
+- Struct `DatabasesBeginCreateOrUpdateOptions` has been removed
+- Struct `DatabasesCreateOrUpdatePollerResponse` has been removed
+- Struct `DatabasesCreateOrUpdateResponse` has been removed
+- Struct `DatabasesCreateOrUpdateResult` has been removed
+- Struct `LocationBasedPerformanceTierClient` has been removed
+- Struct `LocationBasedPerformanceTierListOptions` has been removed
+- Struct `LocationBasedPerformanceTierListResponse` has been removed
+- Struct `LocationBasedPerformanceTierListResult` has been removed
+- Struct `LogFile` has been removed
+- Struct `LogFileListResult` has been removed
+- Struct `LogFileProperties` has been removed
+- Struct `LogFilesClient` has been removed
+- Struct `LogFilesListByServerOptions` has been removed
+- Struct `LogFilesListByServerResponse` has been removed
+- Struct `LogFilesListByServerResult` has been removed
+- Struct `PerformanceTierListResult` has been removed
+- Struct `PerformanceTierProperties` has been removed
+- Struct `PerformanceTierServiceLevelObjectives` has been removed
+- Struct `PrivateEndpointConnection` has been removed
+- Struct `PrivateEndpointConnectionListResult` has been removed
+- Struct `PrivateEndpointConnectionProperties` has been removed
+- Struct `PrivateEndpointConnectionsBeginCreateOrUpdateOptions` has been removed
+- Struct `PrivateEndpointConnectionsBeginDeleteOptions` has been removed
+- Struct `PrivateEndpointConnectionsBeginUpdateTagsOptions` has been removed
+- Struct `PrivateEndpointConnectionsClient` has been removed
+- Struct `PrivateEndpointConnectionsCreateOrUpdatePollerResponse` has been removed
+- Struct `PrivateEndpointConnectionsCreateOrUpdateResponse` has been removed
+- Struct `PrivateEndpointConnectionsCreateOrUpdateResult` has been removed
+- Struct `PrivateEndpointConnectionsDeletePollerResponse` has been removed
+- Struct `PrivateEndpointConnectionsDeleteResponse` has been removed
+- Struct `PrivateEndpointConnectionsGetOptions` has been removed
+- Struct `PrivateEndpointConnectionsGetResponse` has been removed
+- Struct `PrivateEndpointConnectionsGetResult` has been removed
+- Struct `PrivateEndpointConnectionsListByServerOptions` has been removed
+- Struct `PrivateEndpointConnectionsListByServerResponse` has been removed
+- Struct `PrivateEndpointConnectionsListByServerResult` has been removed
+- Struct `PrivateEndpointConnectionsUpdateTagsPollerResponse` has been removed
+- Struct `PrivateEndpointConnectionsUpdateTagsResponse` has been removed
+- Struct `PrivateEndpointConnectionsUpdateTagsResult` has been removed
+- Struct `PrivateEndpointProperty` has been removed
+- Struct `PrivateLinkResource` has been removed
+- Struct `PrivateLinkResourceListResult` has been removed
+- Struct `PrivateLinkResourceProperties` has been removed
+- Struct `PrivateLinkResourcesClient` has been removed
+- Struct `PrivateLinkResourcesGetOptions` has been removed
+- Struct `PrivateLinkResourcesGetResponse` has been removed
+- Struct `PrivateLinkResourcesGetResult` has been removed
+- Struct `PrivateLinkResourcesListByServerOptions` has been removed
+- Struct `PrivateLinkResourcesListByServerResponse` has been removed
+- Struct `PrivateLinkResourcesListByServerResult` has been removed
+- Struct `PrivateLinkServiceConnectionStateProperty` has been removed
+- Struct `RecoverableServerProperties` has been removed
+- Struct `RecoverableServerResource` has been removed
+- Struct `RecoverableServersClient` has been removed
+- Struct `RecoverableServersGetOptions` has been removed
+- Struct `RecoverableServersGetResponse` has been removed
+- Struct `RecoverableServersGetResult` has been removed
+- Struct `ReplicasClient` has been removed
+- Struct `ReplicasListByServerOptions` has been removed
+- Struct `ReplicasListByServerResponse` has been removed
+- Struct `ReplicasListByServerResult` has been removed
+- Struct `ResourceIdentity` has been removed
+- Struct `SecurityAlertPolicyProperties` has been removed
+- Struct `ServerAdministratorProperties` has been removed
+- Struct `ServerAdministratorResource` has been removed
+- Struct `ServerAdministratorResourceListResult` has been removed
+- Struct `ServerAdministratorsBeginCreateOrUpdateOptions` has been removed
+- Struct `ServerAdministratorsBeginDeleteOptions` has been removed
+- Struct `ServerAdministratorsClient` has been removed
+- Struct `ServerAdministratorsCreateOrUpdatePollerResponse` has been removed
+- Struct `ServerAdministratorsCreateOrUpdateResponse` has been removed
+- Struct `ServerAdministratorsCreateOrUpdateResult` has been removed
+- Struct `ServerAdministratorsDeletePollerResponse` has been removed
+- Struct `ServerAdministratorsDeleteResponse` has been removed
+- Struct `ServerAdministratorsGetOptions` has been removed
+- Struct `ServerAdministratorsGetResponse` has been removed
+- Struct `ServerAdministratorsGetResult` has been removed
+- Struct `ServerAdministratorsListOptions` has been removed
+- Struct `ServerAdministratorsListResponse` has been removed
+- Struct `ServerAdministratorsListResult` has been removed
+- Struct `ServerBasedPerformanceTierClient` has been removed
+- Struct `ServerBasedPerformanceTierListOptions` has been removed
+- Struct `ServerBasedPerformanceTierListResponse` has been removed
+- Struct `ServerBasedPerformanceTierListResult` has been removed
+- Struct `ServerForCreate` has been removed
+- Struct `ServerKey` has been removed
+- Struct `ServerKeyListResult` has been removed
+- Struct `ServerKeyProperties` has been removed
+- Struct `ServerKeysBeginCreateOrUpdateOptions` has been removed
+- Struct `ServerKeysBeginDeleteOptions` has been removed
+- Struct `ServerKeysClient` has been removed
+- Struct `ServerKeysCreateOrUpdatePollerResponse` has been removed
+- Struct `ServerKeysCreateOrUpdateResponse` has been removed
+- Struct `ServerKeysCreateOrUpdateResult` has been removed
+- Struct `ServerKeysDeletePollerResponse` has been removed
+- Struct `ServerKeysDeleteResponse` has been removed
+- Struct `ServerKeysGetOptions` has been removed
+- Struct `ServerKeysGetResponse` has been removed
+- Struct `ServerKeysGetResult` has been removed
+- Struct `ServerKeysListOptions` has been removed
+- Struct `ServerKeysListResponse` has been removed
+- Struct `ServerKeysListResult` has been removed
+- Struct `ServerParametersBeginListUpdateConfigurationsOptions` has been removed
+- Struct `ServerParametersClient` has been removed
+- Struct `ServerParametersListUpdateConfigurationsPollerResponse` has been removed
+- Struct `ServerParametersListUpdateConfigurationsResponse` has been removed
+- Struct `ServerParametersListUpdateConfigurationsResult` has been removed
+- Struct `ServerPrivateEndpointConnection` has been removed
+- Struct `ServerPrivateEndpointConnectionProperties` has been removed
+- Struct `ServerPrivateLinkServiceConnectionStateProperty` has been removed
+- Struct `ServerPropertiesForCreate` has been removed
+- Struct `ServerPropertiesForDefaultCreate` has been removed
+- Struct `ServerPropertiesForGeoRestore` has been removed
+- Struct `ServerPropertiesForReplica` has been removed
+- Struct `ServerPropertiesForRestore` has been removed
+- Struct `ServerSecurityAlertPoliciesBeginCreateOrUpdateOptions` has been removed
+- Struct `ServerSecurityAlertPoliciesClient` has been removed
+- Struct `ServerSecurityAlertPoliciesCreateOrUpdatePollerResponse` has been removed
+- Struct `ServerSecurityAlertPoliciesCreateOrUpdateResponse` has been removed
+- Struct `ServerSecurityAlertPoliciesCreateOrUpdateResult` has been removed
+- Struct `ServerSecurityAlertPoliciesGetOptions` has been removed
+- Struct `ServerSecurityAlertPoliciesGetResponse` has been removed
+- Struct `ServerSecurityAlertPoliciesGetResult` has been removed
+- Struct `ServerSecurityAlertPoliciesListByServerOptions` has been removed
+- Struct `ServerSecurityAlertPoliciesListByServerResponse` has been removed
+- Struct `ServerSecurityAlertPoliciesListByServerResult` has been removed
+- Struct `ServerSecurityAlertPolicy` has been removed
+- Struct `ServerSecurityAlertPolicyListResult` has been removed
+- Struct `ServerUpdateParameters` has been removed
+- Struct `ServerUpdateParametersProperties` has been removed
+- Struct `StorageProfile` has been removed
+- Struct `TagsObject` has been removed
+- Struct `VirtualNetworkRule` has been removed
+- Struct `VirtualNetworkRuleListResult` has been removed
+- Struct `VirtualNetworkRuleProperties` has been removed
+- Struct `VirtualNetworkRulesBeginCreateOrUpdateOptions` has been removed
+- Struct `VirtualNetworkRulesBeginDeleteOptions` has been removed
+- Struct `VirtualNetworkRulesClient` has been removed
+- Struct `VirtualNetworkRulesCreateOrUpdatePollerResponse` has been removed
+- Struct `VirtualNetworkRulesCreateOrUpdateResponse` has been removed
+- Struct `VirtualNetworkRulesCreateOrUpdateResult` has been removed
+- Struct `VirtualNetworkRulesDeletePollerResponse` has been removed
+- Struct `VirtualNetworkRulesDeleteResponse` has been removed
+- Struct `VirtualNetworkRulesGetOptions` has been removed
+- Struct `VirtualNetworkRulesGetResponse` has been removed
+- Struct `VirtualNetworkRulesGetResult` has been removed
+- Struct `VirtualNetworkRulesListByServerOptions` has been removed
+- Struct `VirtualNetworkRulesListByServerResponse` has been removed
+- Struct `VirtualNetworkRulesListByServerResult` has been removed
+- Field `PollUntilDone` of struct `ServersRestartPollerResponse` has been removed
+- Field `PollUntilDone` of struct `ServersDeletePollerResponse` has been removed
+- Field `Identity` of struct `Server` has been removed
+- Field `Size` of struct `SKU` has been removed
+- Field `Capacity` of struct `SKU` has been removed
+- Field `Family` of struct `SKU` has been removed
+- Field `PollUntilDone` of struct `FirewallRulesCreateOrUpdatePollerResponse` has been removed
+- Field `PollUntilDone` of struct `FirewallRulesDeletePollerResponse` has been removed
+- Field `PollUntilDone` of struct `ServersUpdatePollerResponse` has been removed
+- Field `PollUntilDone` of struct `DatabasesDeletePollerResponse` has been removed
+- Field `Reason` of struct `NameAvailability` has been removed
+- Field `EarliestRestoreDate` of struct `ServerProperties` has been removed
+- Field `MinimalTLSVersion` of struct `ServerProperties` has been removed
+- Field `ByokEnforcement` of struct `ServerProperties` has been removed
+- Field `UserVisibleState` of struct `ServerProperties` has been removed
+- Field `InfrastructureEncryption` of struct `ServerProperties` has been removed
+- Field `PublicNetworkAccess` of struct `ServerProperties` has been removed
+- Field `ReplicationRole` of struct `ServerProperties` has been removed
+- Field `SSLEnforcement` of struct `ServerProperties` has been removed
+- Field `PrivateEndpointConnections` of struct `ServerProperties` has been removed
+- Field `MasterServerID` of struct `ServerProperties` has been removed
+- Field `ReplicaCapacity` of struct `ServerProperties` has been removed
+- Field `StorageProfile` of struct `ServerProperties` has been removed
+- Field `PollUntilDone` of struct `ServersCreatePollerResponse` has been removed
+
+### New Content
+
+- New const `ServerPublicNetworkAccessStateDisabled`
+- New const `GeoRedundantBackupEnumEnabled`
+- New const `ServerPublicNetworkAccessStateEnabled`
+- New const `ServerStateStopped`
+- New const `HighAvailabilityModeZoneRedundant`
+- New const `ConfigurationDataTypeEnumeration`
+- New const `ConfigurationDataTypeInteger`
+- New const `FailoverModePlannedSwitchover`
+- New const `FailoverModeForcedFailover`
+- New const `ServerStateStopping`
+- New const `CreateModeUpdate`
+- New const `ServerHAStateReplicatingData`
+- New const `ServerHAStateFailingOver`
+- New const `CreatedByTypeManagedIdentity`
+- New const `CreateModeCreate`
+- New const `ServerVersionTwelve`
+- New const `ConfigurationDataTypeNumeric`
+- New const `GeoRedundantBackupEnumDisabled`
+- New const `HighAvailabilityModeDisabled`
+- New const `CreatedByTypeKey`
+- New const `ServerHAStateCreatingStandby`
+- New const `CreatedByTypeApplication`
+- New const `CreateModeForUpdateUpdate`
+- New const `ServerHAStateNotEnabled`
+- New const `ServerHAStateRemovingStandby`
+- New const `ServerVersionThirteen`
+- New const `ConfigurationDataTypeBoolean`
+- New const `ServerHAStateHealthy`
+- New const `SKUTierBurstable`
+- New const `CreatedByTypeUser`
+- New const `ServerStateUpdating`
+- New const `CreateModeForUpdateDefault`
+- New const `FailoverModePlannedFailover`
+- New const `FailoverModeForcedSwitchover`
+- New const `ServerStateStarting`
+- New function `*ConfigurationsListByServerPager.Err() error`
+- New function `*Backup.UnmarshalJSON([]byte) error`
+- New function `*FirewallRulesDeletePollerResponse.Resume(context.Context, *FirewallRulesClient, string) error`
+- New function `*connection.Endpoint() string`
+- New function `*ConfigurationsUpdatePoller.Poll(context.Context) (*http.Response, error)`
+- New function `*ServersDeletePoller.Done() bool`
+- New function `*ServersUpdatePollerResponse.Resume(context.Context, *ServersClient, string) error`
+- New function `*FirewallRulesCreateOrUpdatePoller.Poll(context.Context) (*http.Response, error)`
+- New function `*FirewallRulesDeletePoller.FinalResponse(context.Context) (FirewallRulesDeleteResponse, error)`
+- New function `ConfigurationsUpdatePollerResponse.PollUntilDone(context.Context, time.Duration) (ConfigurationsUpdateResponse, error)`
+- New function `DatabasesDeletePollerResponse.PollUntilDone(context.Context, time.Duration) (DatabasesDeleteResponse, error)`
+- New function `*ConfigurationsUpdatePoller.FinalResponse(context.Context) (ConfigurationsUpdateResponse, error)`
+- New function `*VirtualNetworkSubnetUsageClient.Execute(context.Context, string, VirtualNetworkSubnetUsageParameter, *VirtualNetworkSubnetUsageExecuteOptions) (VirtualNetworkSubnetUsageExecuteResponse, error)`
+- New function `ConfigurationDataType.ToPtr() *ConfigurationDataType`
+- New function `DatabasesCreatePollerResponse.PollUntilDone(context.Context, time.Duration) (DatabasesCreateResponse, error)`
+- New function `*ServersStopPoller.Poll(context.Context) (*http.Response, error)`
+- New function `*DatabasesListByServerPager.NextPage(context.Context) bool`
+- New function `*FirewallRulesListByServerPager.Err() error`
+- New function `*DatabasesCreatePoller.FinalResponse(context.Context) (DatabasesCreateResponse, error)`
+- New function `*FirewallRulesListByServerPager.PageResponse() FirewallRulesListByServerResponse`
+- New function `*DatabasesDeletePoller.ResumeToken() (string, error)`
+- New function `ServersStartPollerResponse.PollUntilDone(context.Context, time.Duration) (ServersStartResponse, error)`
+- New function `*ServersListByResourceGroupPager.PageResponse() ServersListByResourceGroupResponse`
+- New function `PossibleServerPublicNetworkAccessStateValues() []ServerPublicNetworkAccessState`
+- New function `*ServersStopPollerResponse.Resume(context.Context, *ServersClient, string) error`
+- New function `*FirewallRulesCreateOrUpdatePollerResponse.Resume(context.Context, *FirewallRulesClient, string) error`
+- New function `ServerPublicNetworkAccessState.ToPtr() *ServerPublicNetworkAccessState`
+- New function `CreatedByType.ToPtr() *CreatedByType`
+- New function `*LocationBasedCapabilitiesExecutePager.Err() error`
+- New function `*DatabasesDeletePoller.Poll(context.Context) (*http.Response, error)`
+- New function `*LocationBasedCapabilitiesExecutePager.NextPage(context.Context) bool`
+- New function `*ServersUpdatePoller.Done() bool`
+- New function `*ConfigurationsUpdatePoller.ResumeToken() (string, error)`
+- New function `*ServersRestartPollerResponse.Resume(context.Context, *ServersClient, string) error`
+- New function `*LocationBasedCapabilitiesExecutePager.PageResponse() LocationBasedCapabilitiesExecuteResponse`
+- New function `*ServersStartPoller.ResumeToken() (string, error)`
+- New function `*ServersCreatePollerResponse.Resume(context.Context, *ServersClient, string) error`
+- New function `*FirewallRulesDeletePoller.Poll(context.Context) (*http.Response, error)`
+- New function `*ServersListPager.Err() error`
+- New function `*ServersDeletePollerResponse.Resume(context.Context, *ServersClient, string) error`
+- New function `*DatabasesDeletePollerResponse.Resume(context.Context, *DatabasesClient, string) error`
+- New function `StorageEditionCapability.MarshalJSON() ([]byte, error)`
+- New function `Backup.MarshalJSON() ([]byte, error)`
+- New function `*ConfigurationsPutPoller.Poll(context.Context) (*http.Response, error)`
+- New function `*DatabasesDeletePoller.Done() bool`
+- New function `*DatabasesListByServerPager.PageResponse() DatabasesListByServerResponse`
+- New function `*ServersStartPoller.Done() bool`
+- New function `*ConfigurationsListByServerPager.PageResponse() ConfigurationsListByServerResponse`
+- New function `PossibleServerHAStateValues() []ServerHAState`
+- New function `*ServersDeletePoller.FinalResponse(context.Context) (ServersDeleteResponse, error)`
+- New function `PossibleGeoRedundantBackupEnumValues() []GeoRedundantBackupEnum`
+- New function `HighAvailabilityMode.ToPtr() *HighAvailabilityMode`
+- New function `*ConfigurationsPutPoller.Done() bool`
+- New function `NewLocationBasedCapabilitiesClient(*connection, string) *LocationBasedCapabilitiesClient`
+- New function `*DatabasesCreatePoller.Done() bool`
+- New function `*ServersCreatePoller.Done() bool`
+- New function `*ServersRestartPoller.FinalResponse(context.Context) (ServersRestartResponse, error)`
+- New function `FirewallRulesDeletePollerResponse.PollUntilDone(context.Context, time.Duration) (FirewallRulesDeleteResponse, error)`
+- New function `*LocationBasedCapabilitiesClient.Execute(string, *LocationBasedCapabilitiesExecuteOptions) *LocationBasedCapabilitiesExecutePager`
+- New function `*ConfigurationsClient.BeginUpdate(context.Context, string, string, string, Configuration, *ConfigurationsBeginUpdateOptions) (ConfigurationsUpdatePollerResponse, error)`
+- New function `*DatabasesCreatePoller.ResumeToken() (string, error)`
+- New function `ServersStopPollerResponse.PollUntilDone(context.Context, time.Duration) (ServersStopResponse, error)`
+- New function `*ServersStartPoller.Poll(context.Context) (*http.Response, error)`
+- New function `*ServersRestartPoller.Poll(context.Context) (*http.Response, error)`
+- New function `*ServersUpdatePoller.Poll(context.Context) (*http.Response, error)`
+- New function `*ConfigurationsClient.BeginPut(context.Context, string, string, string, Configuration, *ConfigurationsBeginPutOptions) (ConfigurationsPutPollerResponse, error)`
+- New function `*ServersClient.BeginStart(context.Context, string, string, *ServersBeginStartOptions) (ServersStartPollerResponse, error)`
+- New function `*ServersListPager.NextPage(context.Context) bool`
+- New function `*FirewallRulesCreateOrUpdatePoller.FinalResponse(context.Context) (FirewallRulesCreateOrUpdateResponse, error)`
+- New function `*FirewallRulesDeletePoller.ResumeToken() (string, error)`
+- New function `VirtualNetworkSubnetUsageResult.MarshalJSON() ([]byte, error)`
+- New function `PossibleHighAvailabilityModeValues() []HighAvailabilityMode`
+- New function `*ServersUpdatePoller.ResumeToken() (string, error)`
+- New function `*DatabasesClient.BeginCreate(context.Context, string, string, string, Database, *DatabasesBeginCreateOptions) (DatabasesCreatePollerResponse, error)`
+- New function `*ServersListPager.PageResponse() ServersListResponse`
+- New function `*SystemData.UnmarshalJSON([]byte) error`
+- New function `CapabilitiesListResult.MarshalJSON() ([]byte, error)`
+- New function `NewGetPrivateDNSZoneSuffixClient(*connection) *GetPrivateDNSZoneSuffixClient`
+- New function `*ServersStopPoller.Done() bool`
+- New function `*ConfigurationsPutPoller.FinalResponse(context.Context) (ConfigurationsPutResponse, error)`
+- New function `*ConfigurationsUpdatePollerResponse.Resume(context.Context, *ConfigurationsClient, string) error`
+- New function `PossibleCreatedByTypeValues() []CreatedByType`
+- New function `*ServersRestartPoller.ResumeToken() (string, error)`
+- New function `*ConfigurationsListByServerPager.NextPage(context.Context) bool`
+- New function `*ServersListByResourceGroupPager.Err() error`
+- New function `FailoverMode.ToPtr() *FailoverMode`
+- New function `FlexibleServerEditionCapability.MarshalJSON() ([]byte, error)`
+- New function `PossibleCreateModeForUpdateValues() []CreateModeForUpdate`
+- New function `*ServersListByResourceGroupPager.NextPage(context.Context) bool`
+- New function `*ServersCreatePoller.ResumeToken() (string, error)`
+- New function `*ServersDeletePoller.ResumeToken() (string, error)`
+- New function `GeoRedundantBackupEnum.ToPtr() *GeoRedundantBackupEnum`
+- New function `*DatabasesDeletePoller.FinalResponse(context.Context) (DatabasesDeleteResponse, error)`
+- New function `*FirewallRulesListByServerPager.NextPage(context.Context) bool`
+- New function `*FirewallRulesCreateOrUpdatePoller.Done() bool`
+- New function `*ServersRestartPoller.Done() bool`
+- New function `*ServersStopPoller.ResumeToken() (string, error)`
+- New function `*ServersCreatePoller.FinalResponse(context.Context) (ServersCreateResponse, error)`
+- New function `*FirewallRulesCreateOrUpdatePoller.ResumeToken() (string, error)`
+- New function `*ServersStartPollerResponse.Resume(context.Context, *ServersClient, string) error`
+- New function `*ConfigurationsPutPollerResponse.Resume(context.Context, *ConfigurationsClient, string) error`
+- New function `*ServersClient.BeginStop(context.Context, string, string, *ServersBeginStopOptions) (ServersStopPollerResponse, error)`
+- New function `ServersUpdatePollerResponse.PollUntilDone(context.Context, time.Duration) (ServersUpdateResponse, error)`
+- New function `ServersDeletePollerResponse.PollUntilDone(context.Context, time.Duration) (ServersDeleteResponse, error)`
+- New function `*connection.Pipeline() runtime.Pipeline`
+- New function `*ServersUpdatePoller.FinalResponse(context.Context) (ServersUpdateResponse, error)`
+- New function `ConfigurationsPutPollerResponse.PollUntilDone(context.Context, time.Duration) (ConfigurationsPutResponse, error)`
+- New function `CapabilityProperties.MarshalJSON() ([]byte, error)`
+- New function `*DatabasesListByServerPager.Err() error`
+- New function `ServersCreatePollerResponse.PollUntilDone(context.Context, time.Duration) (ServersCreateResponse, error)`
+- New function `*ServersCreatePoller.Poll(context.Context) (*http.Response, error)`
+- New function `CreateModeForUpdate.ToPtr() *CreateModeForUpdate`
+- New function `PossibleConfigurationDataTypeValues() []ConfigurationDataType`
+- New function `HyperscaleNodeEditionCapability.MarshalJSON() ([]byte, error)`
+- New function `ServerHAState.ToPtr() *ServerHAState`
+- New function `*DatabasesCreatePollerResponse.Resume(context.Context, *DatabasesClient, string) error`
+- New function `*ConfigurationsPutPoller.ResumeToken() (string, error)`
+- New function `*ServersDeletePoller.Poll(context.Context) (*http.Response, error)`
+- New function `NewVirtualNetworkSubnetUsageClient(*connection, string) *VirtualNetworkSubnetUsageClient`
+- New function `*ServersStartPoller.FinalResponse(context.Context) (ServersStartResponse, error)`
+- New function `ServerVersionCapability.MarshalJSON() ([]byte, error)`
+- New function `*FirewallRulesDeletePoller.Done() bool`
+- New function `ServerForUpdate.MarshalJSON() ([]byte, error)`
+- New function `*GetPrivateDNSZoneSuffixClient.Execute(context.Context, *GetPrivateDNSZoneSuffixExecuteOptions) (GetPrivateDNSZoneSuffixExecuteResponse, error)`
+- New function `PossibleFailoverModeValues() []FailoverMode`
+- New function `*ConfigurationsUpdatePoller.Done() bool`
+- New function `*DatabasesCreatePoller.Poll(context.Context) (*http.Response, error)`
+- New function `FirewallRulesCreateOrUpdatePollerResponse.PollUntilDone(context.Context, time.Duration) (FirewallRulesCreateOrUpdateResponse, error)`
+- New function `SystemData.MarshalJSON() ([]byte, error)`
+- New function `ServersRestartPollerResponse.PollUntilDone(context.Context, time.Duration) (ServersRestartResponse, error)`
+- New function `*ServersStopPoller.FinalResponse(context.Context) (ServersStopResponse, error)`
+- New struct `Backup`
+- New struct `CapabilitiesListResult`
+- New struct `CapabilityProperties`
+- New struct `ConfigurationsBeginPutOptions`
+- New struct `ConfigurationsBeginUpdateOptions`
+- New struct `ConfigurationsListByServerPager`
+- New struct `ConfigurationsPutPoller`
+- New struct `ConfigurationsPutPollerResponse`
+- New struct `ConfigurationsPutResponse`
+- New struct `ConfigurationsPutResult`
+- New struct `ConfigurationsUpdatePoller`
+- New struct `ConfigurationsUpdatePollerResponse`
+- New struct `ConfigurationsUpdateResponse`
+- New struct `ConfigurationsUpdateResult`
+- New struct `DatabasesBeginCreateOptions`
+- New struct `DatabasesCreatePoller`
+- New struct `DatabasesCreatePollerResponse`
+- New struct `DatabasesCreateResponse`
+- New struct `DatabasesCreateResult`
+- New struct `DatabasesDeletePoller`
+- New struct `DatabasesListByServerPager`
+- New struct `DelegatedSubnetUsage`
+- New struct `FirewallRulesCreateOrUpdatePoller`
+- New struct `FirewallRulesDeletePoller`
+- New struct `FirewallRulesListByServerPager`
+- New struct `FlexibleServerEditionCapability`
+- New struct `GetPrivateDNSZoneSuffixClient`
+- New struct `GetPrivateDNSZoneSuffixExecuteOptions`
+- New struct `GetPrivateDNSZoneSuffixExecuteResponse`
+- New struct `GetPrivateDNSZoneSuffixExecuteResult`
+- New struct `HighAvailability`
+- New struct `HyperscaleNodeEditionCapability`
+- New struct `LocationBasedCapabilitiesClient`
+- New struct `LocationBasedCapabilitiesExecuteOptions`
+- New struct `LocationBasedCapabilitiesExecutePager`
+- New struct `LocationBasedCapabilitiesExecuteResponse`
+- New struct `LocationBasedCapabilitiesExecuteResult`
+- New struct `MaintenanceWindow`
+- New struct `Network`
+- New struct `NodeTypeCapability`
+- New struct `RestartParameter`
+- New struct `ServerForUpdate`
+- New struct `ServerPropertiesForUpdate`
+- New struct `ServerVersionCapability`
+- New struct `ServersBeginStartOptions`
+- New struct `ServersBeginStopOptions`
+- New struct `ServersCreatePoller`
+- New struct `ServersDeletePoller`
+- New struct `ServersListByResourceGroupPager`
+- New struct `ServersListPager`
+- New struct `ServersRestartPoller`
+- New struct `ServersStartPoller`
+- New struct `ServersStartPollerResponse`
+- New struct `ServersStartResponse`
+- New struct `ServersStopPoller`
+- New struct `ServersStopPollerResponse`
+- New struct `ServersStopResponse`
+- New struct `ServersUpdatePoller`
+- New struct `Storage`
+- New struct `StorageEditionCapability`
+- New struct `StorageMBCapability`
+- New struct `SystemData`
+- New struct `VcoreCapability`
+- New struct `VirtualNetworkSubnetUsageClient`
+- New struct `VirtualNetworkSubnetUsageExecuteOptions`
+- New struct `VirtualNetworkSubnetUsageExecuteResponse`
+- New struct `VirtualNetworkSubnetUsageExecuteResult`
+- New struct `VirtualNetworkSubnetUsageParameter`
+- New struct `VirtualNetworkSubnetUsageResult`
+- New field `NextLink` in struct `DatabaseListResult`
+- New field `SystemData` in struct `Database`
+- New field `SystemData` in struct `Configuration`
+- New field `SystemData` in struct `Server`
+- New field `Parameters` in struct `ServersBeginRestartOptions`
+- New field `IsDataAction` in struct `Operation`
+- New field `PointInTimeUTC` in struct `ServerProperties`
+- New field `AvailabilityZone` in struct `ServerProperties`
+- New field `CreateMode` in struct `ServerProperties`
+- New field `AdministratorLoginPassword` in struct `ServerProperties`
+- New field `Backup` in struct `ServerProperties`
+- New field `Tags` in struct `ServerProperties`
+- New field `MaintenanceWindow` in struct `ServerProperties`
+- New field `Storage` in struct `ServerProperties`
+- New field `State` in struct `ServerProperties`
+- New field `SourceServerResourceID` in struct `ServerProperties`
+- New field `HighAvailability` in struct `ServerProperties`
+- New field `Network` in struct `ServerProperties`
+- New field `MinorVersion` in struct `ServerProperties`
+- New field `NextLink` in struct `FirewallRuleListResult`
+- New field `NextLink` in struct `OperationListResult`
+- New field `NextLink` in struct `ConfigurationListResult`
+- New field `Name` in struct `NameAvailability`
+- New field `Type` in struct `NameAvailability`
+- New field `NextLink` in struct `ServerListResult`
+- New field `SystemData` in struct `FirewallRule`
+
+Total 629 breaking change(s), 317 additive change(s).
+
+
 ## v0.1.0 (released)
