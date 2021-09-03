@@ -9,9 +9,10 @@ package armpostgresql
 import (
 	"context"
 	"fmt"
+	"net/http"
+
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
-	"net/http"
 )
 
 // GetPrivateDNSZoneSuffixClient contains the methods for the GetPrivateDNSZoneSuffix group.
