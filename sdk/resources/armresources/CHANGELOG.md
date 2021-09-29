@@ -1,5 +1,8 @@
 # Release History
 
+## 0.3.1 (2021-09-29)
+Retract this module. Please use `github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources` instead
+
 ## 0.3.0 (2021-09-03)
 Updated with the latest track 2 code generator.
 
