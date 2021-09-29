@@ -1,5 +1,8 @@
 # Release History
 
+## 0.2.1 (2021-09-29)
+Retract this module. Please use `github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage` instead
+
 ## 0.2.0 (2021-09-04)
 Updated with the latest track 2 code generator.
 
