@@ -1,10 +1,10 @@
-# Azure Features Module for Go
+# Azure Locks Module for Go
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armfeatures)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armfeatures)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armlocks)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armlocks)
 
-The `armfeatures` module provides operations for working with Azure Features.
+The `armlocks` module provides operations for working with Azure Locks.
 
-[Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armfeatures)
+[Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/resources/armlocks)
 
 # Getting started
 
@@ -17,15 +17,15 @@ The `armfeatures` module provides operations for working with Azure Features.
 
 This project uses [Go modules](https://github.com/golang/go/wiki/Modules) for versioning and dependency management.
 
-Install the Azure Features module:
+Install the Azure Locks module:
 
 ```sh
-go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armfeatures
+go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armlocks
 ```
 
 ## Authorization
 
-When creating a client, you will need to provide a credential for authenticating with Azure Features.  The `azidentity` module provides facilities for various ways of authenticating with Azure including client/secret, certificate, managed identity, and more.
+When creating a client, you will need to provide a credential for authenticating with Azure Locks.  The `azidentity` module provides facilities for various ways of authenticating with Azure including client/secret, certificate, managed identity, and more.
 
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -33,7 +33,7 @@ cred, err := azidentity.NewDefaultAzureCredential(nil)
 
 For more information on authentication, please see the documentation for `azidentity` at [pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity).
 
-## Connecting to Azure Features
+## Connecting to Azure Locks
 
 Once you have a credential, create a connection to the desired ARM endpoint. The `github.com/Azure/azure-sdk-for-go/sdk/azcore/arm` package provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
 
@@ -45,16 +45,16 @@ For more information on ARM connections, please see the documentation for `azcor
 
 ## Clients
 
-Azure Features modules consist of one or more clients.  A client groups a set of related APIs, providing access to its functionality within the specified subscription.  Create one or more clients to access the APIs you require using your `arm.Connection`.
+Azure Locks modules consist of one or more clients.  A client groups a set of related APIs, providing access to its functionality within the specified subscription.  Create one or more clients to access the APIs you require using your `arm.Connection`.
 
 ```go
-client := armfeatures.NewFeaturesClient(con,"<subscription ID>")
+client := armlocks.NewManagementLocksClient(con,"subscription ID")
 ```
 
 ## Provide Feedback
 
 If you encounter bugs or have suggestions, please
-[open an issue](https://github.com/Azure/azure-sdk-for-go/issues) and assign the `Features` label.
+[open an issue](https://github.com/Azure/azure-sdk-for-go/issues) and assign the `Locks` label.
 
 # Contributing
 
