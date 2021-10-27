@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"log"
 	"os"
 	"time"
@@ -25,7 +26,8 @@ func main() {
 		log.Fatal("AZURE_SUBSCRIPTION_ID is not set.")
 	}
 
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	//cred, err := azidentity.NewDefaultAzureCredential(nil)
+	cred, err := azidentity.NewEnvironmentCredential(nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -59,7 +61,7 @@ func main() {
 	//}
 }
 
-func createAppServicePlan(ctx context.Context,cred *azidentity.ChainedTokenCredential) (*armweb.AppServicePlan, error) {
+func createAppServicePlan(ctx context.Context,cred azcore.TokenCredential) (*armweb.AppServicePlan, error) {
 	appServicePlansClient := armweb.NewAppServicePlansClient(subscriptionID,cred,nil)
 
 	pollerResp, err := appServicePlansClient.BeginCreateOrUpdate(
@@ -77,7 +79,7 @@ func createAppServicePlan(ctx context.Context,cred *azidentity.ChainedTokenCrede
 			Properties: &armweb.AppServicePlanProperties{
 				PerSiteScaling: to.BoolPtr(false),
 				IsXenon:        to.BoolPtr(false),
-				//FreeOfferExpirationTime: to.TimePtr(time.Now().AddDate(0, 0, 7)),
+				FreeOfferExpirationTime: to.TimePtr(time.Now().AddDate(0, 0, 7)),
 			},
 		},
 		nil,
@@ -92,7 +94,7 @@ func createAppServicePlan(ctx context.Context,cred *azidentity.ChainedTokenCrede
 	return &resp.AppServicePlan, nil
 }
 
-func createResourceGroup(ctx context.Context,cred *azidentity.ChainedTokenCredential) (*armresources.ResourceGroup, error) {
+func createResourceGroup(ctx context.Context,cred azcore.TokenCredential) (*armresources.ResourceGroup, error) {
 	resourceGroupClient := armresources.NewResourceGroupsClient(subscriptionID,cred,nil)
 
 	resourceGroupResp, err := resourceGroupClient.CreateOrUpdate(
