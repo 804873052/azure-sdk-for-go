@@ -304,7 +304,7 @@ func (d DeploymentOperationProperties) MarshalJSON() ([]byte, error) {
 	populate(objectMap, "statusCode", d.StatusCode)
 	populate(objectMap, "statusMessage", d.StatusMessage)
 	populate(objectMap, "targetResource", d.TargetResource)
-	populate(objectMap, "timestamp", (*timeRFC3339)(d.Timestamp))
+	populateTimeRFC3339(objectMap, "timestamp", d.Timestamp)
 	return json.Marshal(objectMap)
 }
 
@@ -345,9 +345,7 @@ func (d *DeploymentOperationProperties) UnmarshalJSON(data []byte) error {
 			err = unpopulate(val, &d.TargetResource)
 			delete(rawMsg, key)
 		case "timestamp":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			d.Timestamp = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &d.Timestamp)
 			delete(rawMsg, key)
 		}
 		if err != nil {
@@ -538,7 +536,7 @@ func (d DeploymentPropertiesExtended) MarshalJSON() ([]byte, error) {
 	populate(objectMap, "provisioningState", d.ProvisioningState)
 	populate(objectMap, "templateHash", d.TemplateHash)
 	populate(objectMap, "templateLink", d.TemplateLink)
-	populate(objectMap, "timestamp", (*timeRFC3339)(d.Timestamp))
+	populateTimeRFC3339(objectMap, "timestamp", d.Timestamp)
 	populate(objectMap, "validatedResources", d.ValidatedResources)
 	return json.Marshal(objectMap)
 }
@@ -598,9 +596,7 @@ func (d *DeploymentPropertiesExtended) UnmarshalJSON(data []byte) error {
 			err = unpopulate(val, &d.TemplateLink)
 			delete(rawMsg, key)
 		case "timestamp":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			d.Timestamp = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &d.Timestamp)
 			delete(rawMsg, key)
 		case "validatedResources":
 			err = unpopulate(val, &d.ValidatedResources)
@@ -1056,8 +1052,8 @@ type GenericResourceExpanded struct {
 func (g GenericResourceExpanded) MarshalJSON() ([]byte, error) {
 	objectMap := make(map[string]interface{})
 	g.GenericResource.marshalInternal(objectMap)
-	populate(objectMap, "changedTime", (*timeRFC3339)(g.ChangedTime))
-	populate(objectMap, "createdTime", (*timeRFC3339)(g.CreatedTime))
+	populateTimeRFC3339(objectMap, "changedTime", g.ChangedTime)
+	populateTimeRFC3339(objectMap, "createdTime", g.CreatedTime)
 	populate(objectMap, "provisioningState", g.ProvisioningState)
 	return json.Marshal(objectMap)
 }
@@ -1072,14 +1068,10 @@ func (g *GenericResourceExpanded) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "changedTime":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			g.ChangedTime = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &g.ChangedTime)
 			delete(rawMsg, key)
 		case "createdTime":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			g.CreatedTime = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &g.CreatedTime)
 			delete(rawMsg, key)
 		case "provisioningState":
 			err = unpopulate(val, &g.ProvisioningState)

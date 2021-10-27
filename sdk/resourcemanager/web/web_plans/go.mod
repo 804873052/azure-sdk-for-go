@@ -1,0 +1,15 @@
+module azure-sdk-for-go-samples/web/webplan
+
+go 1.16
+
+require (
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v0.20.0
+	github.com/Azure/azure-sdk-for-go/sdk/azidentity v0.11.0
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v0.1.0
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/web/armweb v0.1.0
+)
+
+replace (
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v0.1.0 => ../../resources/armresources
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/web/armweb v0.1.0 => ../armweb
+)
