@@ -13,7 +13,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	armruntime "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
 )
@@ -26,8 +28,15 @@ type AuthorizationOperationsClient struct {
 }
 
 // NewAuthorizationOperationsClient creates a new instance of AuthorizationOperationsClient with the specified values.
-func NewAuthorizationOperationsClient(con *arm.Connection) *AuthorizationOperationsClient {
-	return &AuthorizationOperationsClient{ep: con.Endpoint(), pl: con.NewPipeline(module, version)}
+func NewAuthorizationOperationsClient(credential azcore.TokenCredential, options *arm.ClientOptions) *AuthorizationOperationsClient {
+	cp := arm.ClientOptions{}
+	if options != nil {
+		cp = *options
+	}
+	if len(cp.Host) == 0 {
+		cp.Host = arm.AzurePublicCloud
+	}
+	return &AuthorizationOperationsClient{ep: string(cp.Host), pl: armruntime.NewPipeline(module, version, credential, &cp)}
 }
 
 // List - Lists all of the available Microsoft.Authorization REST API operations.
