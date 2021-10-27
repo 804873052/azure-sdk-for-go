@@ -10,10 +10,9 @@ package armfeatures
 
 import (
 	"encoding/json"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"reflect"
 	"time"
-
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 )
 
 // AuthorizationProfile - Authorization Profile
@@ -37,9 +36,9 @@ type AuthorizationProfile struct {
 // MarshalJSON implements the json.Marshaller interface for type AuthorizationProfile.
 func (a AuthorizationProfile) MarshalJSON() ([]byte, error) {
 	objectMap := make(map[string]interface{})
-	populate(objectMap, "approvedTime", (*timeRFC3339)(a.ApprovedTime))
+	populateTimeRFC3339(objectMap, "approvedTime", a.ApprovedTime)
 	populate(objectMap, "approver", a.Approver)
-	populate(objectMap, "requestedTime", (*timeRFC3339)(a.RequestedTime))
+	populateTimeRFC3339(objectMap, "requestedTime", a.RequestedTime)
 	populate(objectMap, "requester", a.Requester)
 	populate(objectMap, "requesterObjectId", a.RequesterObjectID)
 	return json.Marshal(objectMap)
@@ -55,17 +54,13 @@ func (a *AuthorizationProfile) UnmarshalJSON(data []byte) error {
 		var err error
 		switch key {
 		case "approvedTime":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			a.ApprovedTime = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &a.ApprovedTime)
 			delete(rawMsg, key)
 		case "approver":
 			err = unpopulate(val, &a.Approver)
 			delete(rawMsg, key)
 		case "requestedTime":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			a.RequestedTime = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &a.RequestedTime)
 			delete(rawMsg, key)
 		case "requester":
 			err = unpopulate(val, &a.Requester)
@@ -313,8 +308,8 @@ func (s SubscriptionFeatureRegistrationProperties) MarshalJSON() ([]byte, error)
 	populate(objectMap, "featureName", s.FeatureName)
 	populate(objectMap, "metadata", s.Metadata)
 	populate(objectMap, "providerNamespace", s.ProviderNamespace)
-	populate(objectMap, "registrationDate", (*timeRFC3339)(s.RegistrationDate))
-	populate(objectMap, "releaseDate", (*timeRFC3339)(s.ReleaseDate))
+	populateTimeRFC3339(objectMap, "registrationDate", s.RegistrationDate)
+	populateTimeRFC3339(objectMap, "releaseDate", s.ReleaseDate)
 	populate(objectMap, "shouldFeatureDisplayInPortal", s.ShouldFeatureDisplayInPortal)
 	populate(objectMap, "state", s.State)
 	populate(objectMap, "subscriptionId", s.SubscriptionID)
@@ -356,14 +351,10 @@ func (s *SubscriptionFeatureRegistrationProperties) UnmarshalJSON(data []byte) e
 			err = unpopulate(val, &s.ProviderNamespace)
 			delete(rawMsg, key)
 		case "registrationDate":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			s.RegistrationDate = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &s.RegistrationDate)
 			delete(rawMsg, key)
 		case "releaseDate":
-			var aux timeRFC3339
-			err = unpopulate(val, &aux)
-			s.ReleaseDate = (*time.Time)(&aux)
+			err = unpopulateTimeRFC3339(val, &s.ReleaseDate)
 			delete(rawMsg, key)
 		case "shouldFeatureDisplayInPortal":
 			err = unpopulate(val, &s.ShouldFeatureDisplayInPortal)
