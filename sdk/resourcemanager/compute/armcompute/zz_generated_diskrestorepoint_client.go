@@ -97,7 +97,7 @@ func (client *DiskRestorePointClient) getCreateRequest(ctx context.Context, reso
 func (client *DiskRestorePointClient) getHandleResponse(resp *http.Response) (DiskRestorePointGetResponse, error) {
 	result := DiskRestorePointGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.DiskRestorePoint); err != nil {
-		return DiskRestorePointGetResponse{}, err
+		return DiskRestorePointGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -247,7 +247,7 @@ func (client *DiskRestorePointClient) listByRestorePointCreateRequest(ctx contex
 func (client *DiskRestorePointClient) listByRestorePointHandleResponse(resp *http.Response) (DiskRestorePointListByRestorePointResponse, error) {
 	result := DiskRestorePointListByRestorePointResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.DiskRestorePointList); err != nil {
-		return DiskRestorePointListByRestorePointResponse{}, err
+		return DiskRestorePointListByRestorePointResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

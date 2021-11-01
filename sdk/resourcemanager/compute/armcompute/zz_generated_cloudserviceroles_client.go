@@ -93,7 +93,7 @@ func (client *CloudServiceRolesClient) getCreateRequest(ctx context.Context, rol
 func (client *CloudServiceRolesClient) getHandleResponse(resp *http.Response) (CloudServiceRolesGetResponse, error) {
 	result := CloudServiceRolesGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CloudServiceRole); err != nil {
-		return CloudServiceRolesGetResponse{}, err
+		return CloudServiceRolesGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -156,7 +156,7 @@ func (client *CloudServiceRolesClient) listCreateRequest(ctx context.Context, re
 func (client *CloudServiceRolesClient) listHandleResponse(resp *http.Response) (CloudServiceRolesListResponse, error) {
 	result := CloudServiceRolesListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CloudServiceRoleListResult); err != nil {
-		return CloudServiceRolesListResponse{}, err
+		return CloudServiceRolesListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

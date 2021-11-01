@@ -92,7 +92,7 @@ func (client *CloudServicesUpdateDomainClient) getUpdateDomainCreateRequest(ctx 
 func (client *CloudServicesUpdateDomainClient) getUpdateDomainHandleResponse(resp *http.Response) (CloudServicesUpdateDomainGetUpdateDomainResponse, error) {
 	result := CloudServicesUpdateDomainGetUpdateDomainResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.UpdateDomain); err != nil {
-		return CloudServicesUpdateDomainGetUpdateDomainResponse{}, err
+		return CloudServicesUpdateDomainGetUpdateDomainResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -154,7 +154,7 @@ func (client *CloudServicesUpdateDomainClient) listUpdateDomainsCreateRequest(ct
 func (client *CloudServicesUpdateDomainClient) listUpdateDomainsHandleResponse(resp *http.Response) (CloudServicesUpdateDomainListUpdateDomainsResponse, error) {
 	result := CloudServicesUpdateDomainListUpdateDomainsResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.UpdateDomainListResult); err != nil {
-		return CloudServicesUpdateDomainListUpdateDomainsResponse{}, err
+		return CloudServicesUpdateDomainListUpdateDomainsResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

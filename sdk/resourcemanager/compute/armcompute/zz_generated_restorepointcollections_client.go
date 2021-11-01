@@ -90,7 +90,7 @@ func (client *RestorePointCollectionsClient) createOrUpdateCreateRequest(ctx con
 func (client *RestorePointCollectionsClient) createOrUpdateHandleResponse(resp *http.Response) (RestorePointCollectionsCreateOrUpdateResponse, error) {
 	result := RestorePointCollectionsCreateOrUpdateResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RestorePointCollection); err != nil {
-		return RestorePointCollectionsCreateOrUpdateResponse{}, err
+		return RestorePointCollectionsCreateOrUpdateResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -234,7 +234,7 @@ func (client *RestorePointCollectionsClient) getCreateRequest(ctx context.Contex
 func (client *RestorePointCollectionsClient) getHandleResponse(resp *http.Response) (RestorePointCollectionsGetResponse, error) {
 	result := RestorePointCollectionsGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RestorePointCollection); err != nil {
-		return RestorePointCollectionsGetResponse{}, err
+		return RestorePointCollectionsGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -292,7 +292,7 @@ func (client *RestorePointCollectionsClient) listCreateRequest(ctx context.Conte
 func (client *RestorePointCollectionsClient) listHandleResponse(resp *http.Response) (RestorePointCollectionsListResponse, error) {
 	result := RestorePointCollectionsListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RestorePointCollectionListResult); err != nil {
-		return RestorePointCollectionsListResponse{}, err
+		return RestorePointCollectionsListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -348,7 +348,7 @@ func (client *RestorePointCollectionsClient) listAllCreateRequest(ctx context.Co
 func (client *RestorePointCollectionsClient) listAllHandleResponse(resp *http.Response) (RestorePointCollectionsListAllResponse, error) {
 	result := RestorePointCollectionsListAllResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RestorePointCollectionListResult); err != nil {
-		return RestorePointCollectionsListAllResponse{}, err
+		return RestorePointCollectionsListAllResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -413,7 +413,7 @@ func (client *RestorePointCollectionsClient) updateCreateRequest(ctx context.Con
 func (client *RestorePointCollectionsClient) updateHandleResponse(resp *http.Response) (RestorePointCollectionsUpdateResponse, error) {
 	result := RestorePointCollectionsUpdateResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RestorePointCollection); err != nil {
-		return RestorePointCollectionsUpdateResponse{}, err
+		return RestorePointCollectionsUpdateResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

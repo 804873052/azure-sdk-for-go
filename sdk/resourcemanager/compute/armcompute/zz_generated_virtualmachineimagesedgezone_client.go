@@ -106,7 +106,7 @@ func (client *VirtualMachineImagesEdgeZoneClient) getCreateRequest(ctx context.C
 func (client *VirtualMachineImagesEdgeZoneClient) getHandleResponse(resp *http.Response) (VirtualMachineImagesEdgeZoneGetResponse, error) {
 	result := VirtualMachineImagesEdgeZoneGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineImage); err != nil {
-		return VirtualMachineImagesEdgeZoneGetResponse{}, err
+		return VirtualMachineImagesEdgeZoneGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -192,7 +192,7 @@ func (client *VirtualMachineImagesEdgeZoneClient) listCreateRequest(ctx context.
 func (client *VirtualMachineImagesEdgeZoneClient) listHandleResponse(resp *http.Response) (VirtualMachineImagesEdgeZoneListResponse, error) {
 	result := VirtualMachineImagesEdgeZoneListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineImageResourceArray); err != nil {
-		return VirtualMachineImagesEdgeZoneListResponse{}, err
+		return VirtualMachineImagesEdgeZoneListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -261,7 +261,7 @@ func (client *VirtualMachineImagesEdgeZoneClient) listOffersCreateRequest(ctx co
 func (client *VirtualMachineImagesEdgeZoneClient) listOffersHandleResponse(resp *http.Response) (VirtualMachineImagesEdgeZoneListOffersResponse, error) {
 	result := VirtualMachineImagesEdgeZoneListOffersResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineImageResourceArray); err != nil {
-		return VirtualMachineImagesEdgeZoneListOffersResponse{}, err
+		return VirtualMachineImagesEdgeZoneListOffersResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -326,7 +326,7 @@ func (client *VirtualMachineImagesEdgeZoneClient) listPublishersCreateRequest(ct
 func (client *VirtualMachineImagesEdgeZoneClient) listPublishersHandleResponse(resp *http.Response) (VirtualMachineImagesEdgeZoneListPublishersResponse, error) {
 	result := VirtualMachineImagesEdgeZoneListPublishersResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineImageResourceArray); err != nil {
-		return VirtualMachineImagesEdgeZoneListPublishersResponse{}, err
+		return VirtualMachineImagesEdgeZoneListPublishersResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -399,7 +399,7 @@ func (client *VirtualMachineImagesEdgeZoneClient) listSKUsCreateRequest(ctx cont
 func (client *VirtualMachineImagesEdgeZoneClient) listSKUsHandleResponse(resp *http.Response) (VirtualMachineImagesEdgeZoneListSKUsResponse, error) {
 	result := VirtualMachineImagesEdgeZoneListSKUsResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineImageResourceArray); err != nil {
-		return VirtualMachineImagesEdgeZoneListSKUsResponse{}, err
+		return VirtualMachineImagesEdgeZoneListSKUsResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

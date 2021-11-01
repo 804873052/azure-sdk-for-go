@@ -91,7 +91,7 @@ func (client *CapacityReservationGroupsClient) createOrUpdateCreateRequest(ctx c
 func (client *CapacityReservationGroupsClient) createOrUpdateHandleResponse(resp *http.Response) (CapacityReservationGroupsCreateOrUpdateResponse, error) {
 	result := CapacityReservationGroupsCreateOrUpdateResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservationGroup); err != nil {
-		return CapacityReservationGroupsCreateOrUpdateResponse{}, err
+		return CapacityReservationGroupsCreateOrUpdateResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -217,7 +217,7 @@ func (client *CapacityReservationGroupsClient) getCreateRequest(ctx context.Cont
 func (client *CapacityReservationGroupsClient) getHandleResponse(resp *http.Response) (CapacityReservationGroupsGetResponse, error) {
 	result := CapacityReservationGroupsGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservationGroup); err != nil {
-		return CapacityReservationGroupsGetResponse{}, err
+		return CapacityReservationGroupsGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -279,7 +279,7 @@ func (client *CapacityReservationGroupsClient) listByResourceGroupCreateRequest(
 func (client *CapacityReservationGroupsClient) listByResourceGroupHandleResponse(resp *http.Response) (CapacityReservationGroupsListByResourceGroupResponse, error) {
 	result := CapacityReservationGroupsListByResourceGroupResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservationGroupListResult); err != nil {
-		return CapacityReservationGroupsListByResourceGroupResponse{}, err
+		return CapacityReservationGroupsListByResourceGroupResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -337,7 +337,7 @@ func (client *CapacityReservationGroupsClient) listBySubscriptionCreateRequest(c
 func (client *CapacityReservationGroupsClient) listBySubscriptionHandleResponse(resp *http.Response) (CapacityReservationGroupsListBySubscriptionResponse, error) {
 	result := CapacityReservationGroupsListBySubscriptionResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservationGroupListResult); err != nil {
-		return CapacityReservationGroupsListBySubscriptionResponse{}, err
+		return CapacityReservationGroupsListBySubscriptionResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -402,7 +402,7 @@ func (client *CapacityReservationGroupsClient) updateCreateRequest(ctx context.C
 func (client *CapacityReservationGroupsClient) updateHandleResponse(resp *http.Response) (CapacityReservationGroupsUpdateResponse, error) {
 	result := CapacityReservationGroupsUpdateResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservationGroup); err != nil {
-		return CapacityReservationGroupsUpdateResponse{}, err
+		return CapacityReservationGroupsUpdateResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

@@ -260,7 +260,7 @@ func (client *VirtualMachineScaleSetVMsClient) getCreateRequest(ctx context.Cont
 func (client *VirtualMachineScaleSetVMsClient) getHandleResponse(resp *http.Response) (VirtualMachineScaleSetVMsGetResponse, error) {
 	result := VirtualMachineScaleSetVMsGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineScaleSetVM); err != nil {
-		return VirtualMachineScaleSetVMsGetResponse{}, err
+		return VirtualMachineScaleSetVMsGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -328,7 +328,7 @@ func (client *VirtualMachineScaleSetVMsClient) getInstanceViewCreateRequest(ctx 
 func (client *VirtualMachineScaleSetVMsClient) getInstanceViewHandleResponse(resp *http.Response) (VirtualMachineScaleSetVMsGetInstanceViewResponse, error) {
 	result := VirtualMachineScaleSetVMsGetInstanceViewResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineScaleSetVMInstanceView); err != nil {
-		return VirtualMachineScaleSetVMsGetInstanceViewResponse{}, err
+		return VirtualMachineScaleSetVMsGetInstanceViewResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -398,7 +398,7 @@ func (client *VirtualMachineScaleSetVMsClient) listCreateRequest(ctx context.Con
 func (client *VirtualMachineScaleSetVMsClient) listHandleResponse(resp *http.Response) (VirtualMachineScaleSetVMsListResponse, error) {
 	result := VirtualMachineScaleSetVMsListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.VirtualMachineScaleSetVMListResult); err != nil {
-		return VirtualMachineScaleSetVMsListResponse{}, err
+		return VirtualMachineScaleSetVMsListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -949,7 +949,7 @@ func (client *VirtualMachineScaleSetVMsClient) retrieveBootDiagnosticsDataCreate
 func (client *VirtualMachineScaleSetVMsClient) retrieveBootDiagnosticsDataHandleResponse(resp *http.Response) (VirtualMachineScaleSetVMsRetrieveBootDiagnosticsDataResponse, error) {
 	result := VirtualMachineScaleSetVMsRetrieveBootDiagnosticsDataResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RetrieveBootDiagnosticsDataResult); err != nil {
-		return VirtualMachineScaleSetVMsRetrieveBootDiagnosticsDataResponse{}, err
+		return VirtualMachineScaleSetVMsRetrieveBootDiagnosticsDataResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

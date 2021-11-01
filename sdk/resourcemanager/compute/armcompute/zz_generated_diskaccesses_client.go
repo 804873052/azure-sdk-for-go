@@ -321,7 +321,7 @@ func (client *DiskAccessesClient) getCreateRequest(ctx context.Context, resource
 func (client *DiskAccessesClient) getHandleResponse(resp *http.Response) (DiskAccessesGetResponse, error) {
 	result := DiskAccessesGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.DiskAccess); err != nil {
-		return DiskAccessesGetResponse{}, err
+		return DiskAccessesGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -390,7 +390,7 @@ func (client *DiskAccessesClient) getAPrivateEndpointConnectionCreateRequest(ctx
 func (client *DiskAccessesClient) getAPrivateEndpointConnectionHandleResponse(resp *http.Response) (DiskAccessesGetAPrivateEndpointConnectionResponse, error) {
 	result := DiskAccessesGetAPrivateEndpointConnectionResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.PrivateEndpointConnection); err != nil {
-		return DiskAccessesGetAPrivateEndpointConnectionResponse{}, err
+		return DiskAccessesGetAPrivateEndpointConnectionResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -455,7 +455,7 @@ func (client *DiskAccessesClient) getPrivateLinkResourcesCreateRequest(ctx conte
 func (client *DiskAccessesClient) getPrivateLinkResourcesHandleResponse(resp *http.Response) (DiskAccessesGetPrivateLinkResourcesResponse, error) {
 	result := DiskAccessesGetPrivateLinkResourcesResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.PrivateLinkResourceListResult); err != nil {
-		return DiskAccessesGetPrivateLinkResourcesResponse{}, err
+		return DiskAccessesGetPrivateLinkResourcesResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -508,7 +508,7 @@ func (client *DiskAccessesClient) listCreateRequest(ctx context.Context, options
 func (client *DiskAccessesClient) listHandleResponse(resp *http.Response) (DiskAccessesListResponse, error) {
 	result := DiskAccessesListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.DiskAccessList); err != nil {
-		return DiskAccessesListResponse{}, err
+		return DiskAccessesListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -566,7 +566,7 @@ func (client *DiskAccessesClient) listByResourceGroupCreateRequest(ctx context.C
 func (client *DiskAccessesClient) listByResourceGroupHandleResponse(resp *http.Response) (DiskAccessesListByResourceGroupResponse, error) {
 	result := DiskAccessesListByResourceGroupResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.DiskAccessList); err != nil {
-		return DiskAccessesListByResourceGroupResponse{}, err
+		return DiskAccessesListByResourceGroupResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -628,7 +628,7 @@ func (client *DiskAccessesClient) listPrivateEndpointConnectionsCreateRequest(ct
 func (client *DiskAccessesClient) listPrivateEndpointConnectionsHandleResponse(resp *http.Response) (DiskAccessesListPrivateEndpointConnectionsResponse, error) {
 	result := DiskAccessesListPrivateEndpointConnectionsResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.PrivateEndpointConnectionListResult); err != nil {
-		return DiskAccessesListPrivateEndpointConnectionsResponse{}, err
+		return DiskAccessesListPrivateEndpointConnectionsResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

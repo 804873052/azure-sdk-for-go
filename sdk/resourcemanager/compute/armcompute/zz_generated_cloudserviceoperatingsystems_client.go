@@ -89,7 +89,7 @@ func (client *CloudServiceOperatingSystemsClient) getOSFamilyCreateRequest(ctx c
 func (client *CloudServiceOperatingSystemsClient) getOSFamilyHandleResponse(resp *http.Response) (CloudServiceOperatingSystemsGetOSFamilyResponse, error) {
 	result := CloudServiceOperatingSystemsGetOSFamilyResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.OSFamily); err != nil {
-		return CloudServiceOperatingSystemsGetOSFamilyResponse{}, err
+		return CloudServiceOperatingSystemsGetOSFamilyResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -154,7 +154,7 @@ func (client *CloudServiceOperatingSystemsClient) getOSVersionCreateRequest(ctx 
 func (client *CloudServiceOperatingSystemsClient) getOSVersionHandleResponse(resp *http.Response) (CloudServiceOperatingSystemsGetOSVersionResponse, error) {
 	result := CloudServiceOperatingSystemsGetOSVersionResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.OSVersion); err != nil {
-		return CloudServiceOperatingSystemsGetOSVersionResponse{}, err
+		return CloudServiceOperatingSystemsGetOSVersionResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -214,7 +214,7 @@ func (client *CloudServiceOperatingSystemsClient) listOSFamiliesCreateRequest(ct
 func (client *CloudServiceOperatingSystemsClient) listOSFamiliesHandleResponse(resp *http.Response) (CloudServiceOperatingSystemsListOSFamiliesResponse, error) {
 	result := CloudServiceOperatingSystemsListOSFamiliesResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.OSFamilyListResult); err != nil {
-		return CloudServiceOperatingSystemsListOSFamiliesResponse{}, err
+		return CloudServiceOperatingSystemsListOSFamiliesResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -274,7 +274,7 @@ func (client *CloudServiceOperatingSystemsClient) listOSVersionsCreateRequest(ct
 func (client *CloudServiceOperatingSystemsClient) listOSVersionsHandleResponse(resp *http.Response) (CloudServiceOperatingSystemsListOSVersionsResponse, error) {
 	result := CloudServiceOperatingSystemsListOSVersionsResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.OSVersionListResult); err != nil {
-		return CloudServiceOperatingSystemsListOSVersionsResponse{}, err
+		return CloudServiceOperatingSystemsListOSVersionsResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

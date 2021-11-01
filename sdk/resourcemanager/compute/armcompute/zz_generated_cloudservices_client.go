@@ -323,7 +323,7 @@ func (client *CloudServicesClient) getCreateRequest(ctx context.Context, resourc
 func (client *CloudServicesClient) getHandleResponse(resp *http.Response) (CloudServicesGetResponse, error) {
 	result := CloudServicesGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CloudService); err != nil {
-		return CloudServicesGetResponse{}, err
+		return CloudServicesGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -388,7 +388,7 @@ func (client *CloudServicesClient) getInstanceViewCreateRequest(ctx context.Cont
 func (client *CloudServicesClient) getInstanceViewHandleResponse(resp *http.Response) (CloudServicesGetInstanceViewResponse, error) {
 	result := CloudServicesGetInstanceViewResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CloudServiceInstanceView); err != nil {
-		return CloudServicesGetInstanceViewResponse{}, err
+		return CloudServicesGetInstanceViewResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -447,7 +447,7 @@ func (client *CloudServicesClient) listCreateRequest(ctx context.Context, resour
 func (client *CloudServicesClient) listHandleResponse(resp *http.Response) (CloudServicesListResponse, error) {
 	result := CloudServicesListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CloudServiceListResult); err != nil {
-		return CloudServicesListResponse{}, err
+		return CloudServicesListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -503,7 +503,7 @@ func (client *CloudServicesClient) listAllCreateRequest(ctx context.Context, opt
 func (client *CloudServicesClient) listAllHandleResponse(resp *http.Response) (CloudServicesListAllResponse, error) {
 	result := CloudServicesListAllResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CloudServiceListResult); err != nil {
-		return CloudServicesListAllResponse{}, err
+		return CloudServicesListAllResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

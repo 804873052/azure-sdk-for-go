@@ -93,7 +93,7 @@ func (client *CommunityGalleryImagesClient) getCreateRequest(ctx context.Context
 func (client *CommunityGalleryImagesClient) getHandleResponse(resp *http.Response) (CommunityGalleryImagesGetResponse, error) {
 	result := CommunityGalleryImagesGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CommunityGalleryImage); err != nil {
-		return CommunityGalleryImagesGetResponse{}, err
+		return CommunityGalleryImagesGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

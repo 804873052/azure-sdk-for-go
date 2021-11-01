@@ -264,7 +264,7 @@ func (client *CapacityReservationsClient) getCreateRequest(ctx context.Context, 
 func (client *CapacityReservationsClient) getHandleResponse(resp *http.Response) (CapacityReservationsGetResponse, error) {
 	result := CapacityReservationsGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservation); err != nil {
-		return CapacityReservationsGetResponse{}, err
+		return CapacityReservationsGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -327,7 +327,7 @@ func (client *CapacityReservationsClient) listByCapacityReservationGroupCreateRe
 func (client *CapacityReservationsClient) listByCapacityReservationGroupHandleResponse(resp *http.Response) (CapacityReservationsListByCapacityReservationGroupResponse, error) {
 	result := CapacityReservationsListByCapacityReservationGroupResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.CapacityReservationListResult); err != nil {
-		return CapacityReservationsListByCapacityReservationGroupResponse{}, err
+		return CapacityReservationsListByCapacityReservationGroupResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

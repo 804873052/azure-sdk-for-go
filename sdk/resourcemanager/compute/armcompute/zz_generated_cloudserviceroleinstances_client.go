@@ -176,7 +176,7 @@ func (client *CloudServiceRoleInstancesClient) getCreateRequest(ctx context.Cont
 func (client *CloudServiceRoleInstancesClient) getHandleResponse(resp *http.Response) (CloudServiceRoleInstancesGetResponse, error) {
 	result := CloudServiceRoleInstancesGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RoleInstance); err != nil {
-		return CloudServiceRoleInstancesGetResponse{}, err
+		return CloudServiceRoleInstancesGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -245,7 +245,7 @@ func (client *CloudServiceRoleInstancesClient) getInstanceViewCreateRequest(ctx 
 func (client *CloudServiceRoleInstancesClient) getInstanceViewHandleResponse(resp *http.Response) (CloudServiceRoleInstancesGetInstanceViewResponse, error) {
 	result := CloudServiceRoleInstancesGetInstanceViewResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RoleInstanceView); err != nil {
-		return CloudServiceRoleInstancesGetInstanceViewResponse{}, err
+		return CloudServiceRoleInstancesGetInstanceViewResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -371,7 +371,7 @@ func (client *CloudServiceRoleInstancesClient) listCreateRequest(ctx context.Con
 func (client *CloudServiceRoleInstancesClient) listHandleResponse(resp *http.Response) (CloudServiceRoleInstancesListResponse, error) {
 	result := CloudServiceRoleInstancesListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RoleInstanceListResult); err != nil {
-		return CloudServiceRoleInstancesListResponse{}, err
+		return CloudServiceRoleInstancesListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

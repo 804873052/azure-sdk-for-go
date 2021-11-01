@@ -97,7 +97,7 @@ func (client *SharedGalleryImageVersionsClient) getCreateRequest(ctx context.Con
 func (client *SharedGalleryImageVersionsClient) getHandleResponse(resp *http.Response) (SharedGalleryImageVersionsGetResponse, error) {
 	result := SharedGalleryImageVersionsGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.SharedGalleryImageVersion); err != nil {
-		return SharedGalleryImageVersionsGetResponse{}, err
+		return SharedGalleryImageVersionsGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -166,7 +166,7 @@ func (client *SharedGalleryImageVersionsClient) listCreateRequest(ctx context.Co
 func (client *SharedGalleryImageVersionsClient) listHandleResponse(resp *http.Response) (SharedGalleryImageVersionsListResponse, error) {
 	result := SharedGalleryImageVersionsListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.SharedGalleryImageVersionList); err != nil {
-		return SharedGalleryImageVersionsListResponse{}, err
+		return SharedGalleryImageVersionsListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

@@ -253,7 +253,7 @@ func (client *RestorePointsClient) getCreateRequest(ctx context.Context, resourc
 func (client *RestorePointsClient) getHandleResponse(resp *http.Response) (RestorePointsGetResponse, error) {
 	result := RestorePointsGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.RestorePoint); err != nil {
-		return RestorePointsGetResponse{}, err
+		return RestorePointsGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }

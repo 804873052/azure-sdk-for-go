@@ -89,7 +89,7 @@ func (client *SharedGalleriesClient) getCreateRequest(ctx context.Context, locat
 func (client *SharedGalleriesClient) getHandleResponse(resp *http.Response) (SharedGalleriesGetResponse, error) {
 	result := SharedGalleriesGetResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.SharedGallery); err != nil {
-		return SharedGalleriesGetResponse{}, err
+		return SharedGalleriesGetResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
@@ -150,7 +150,7 @@ func (client *SharedGalleriesClient) listCreateRequest(ctx context.Context, loca
 func (client *SharedGalleriesClient) listHandleResponse(resp *http.Response) (SharedGalleriesListResponse, error) {
 	result := SharedGalleriesListResponse{RawResponse: resp}
 	if err := runtime.UnmarshalAsJSON(resp, &result.SharedGalleryList); err != nil {
-		return SharedGalleriesListResponse{}, err
+		return SharedGalleriesListResponse{}, runtime.NewResponseError(err, resp)
 	}
 	return result, nil
 }
