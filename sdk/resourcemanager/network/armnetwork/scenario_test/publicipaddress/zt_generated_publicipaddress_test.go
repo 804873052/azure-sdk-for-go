@@ -86,6 +86,7 @@ func prepare(t *testing.T) {
 }
 
 func scenarioPublicipaddress(t *testing.T) {
+	publicIPName := "test-ip"
 	// From step PublicIpAddress_CreateDefaults
 	publicIPAddressesClient := armnetwork.NewPublicIPAddressesClient(subscriptionId, cred, options)
 	{
@@ -164,56 +165,11 @@ func scenarioPublicipaddress(t *testing.T) {
 		t.Logf("Response result: %#v\n", response.PublicIPAddressesClientCreateOrUpdateResult)
 	}
 
-	// From step PublicIpAddress_CreateCustomziedValues
-	{
-		publicIPAddressesClientCreateOrUpdatePollerResponse, err := publicIPAddressesClient.BeginCreateOrUpdate(ctx,
-			resourceGroupName,
-			"test-ip",
-			armnetwork.PublicIPAddress{
-				Location: to.StringPtr(location),
-				Properties: &armnetwork.PublicIPAddressPropertiesFormat{
-					IdleTimeoutInMinutes:     to.Int32Ptr(10),
-					PublicIPAddressVersion:   armnetwork.IPVersionIPv4.ToPtr(),
-					PublicIPAllocationMethod: armnetwork.IPAllocationMethodStatic.ToPtr(),
-				},
-				SKU: &armnetwork.PublicIPAddressSKU{
-					Name: armnetwork.PublicIPAddressSKUNameStandard.ToPtr(),
-					Tier: armnetwork.PublicIPAddressSKUTierGlobal.ToPtr(),
-				},
-			},
-			nil)
-		if err != nil {
-			t.Fatalf("Request error: %v", err)
-		}
-		var response armnetwork.PublicIPAddressesClientCreateOrUpdateResponse
-		if recording.GetRecordMode() == recording.PlaybackMode {
-			for {
-				_, err = publicIPAddressesClientCreateOrUpdatePollerResponse.Poller.Poll(ctx)
-				if err != nil {
-					t.Fatalf("Request error: %v", err)
-				}
-				if publicIPAddressesClientCreateOrUpdatePollerResponse.Poller.Done() {
-					response, err = publicIPAddressesClientCreateOrUpdatePollerResponse.Poller.FinalResponse(ctx)
-					if err != nil {
-						t.Fatalf("Request error: %v", err)
-					}
-					break
-				}
-			}
-		} else {
-			response, err = publicIPAddressesClientCreateOrUpdatePollerResponse.PollUntilDone(ctx, 10*time.Second)
-			if err != nil {
-				t.Fatalf("Request error: %v", err)
-			}
-		}
-		t.Logf("Response result: %#v\n", response.PublicIPAddressesClientCreateOrUpdateResult)
-	}
-
 	// From step PublicIpAddress_Get
 	{
 		publicIPAddressesClientGetResponse, err := publicIPAddressesClient.Get(ctx,
 			resourceGroupName,
-			"testDNS-ip",
+			publicIPName,
 			&armnetwork.PublicIPAddressesClientGetOptions{Expand: nil})
 		if err != nil {
 			t.Fatalf("Request error: %v", err)

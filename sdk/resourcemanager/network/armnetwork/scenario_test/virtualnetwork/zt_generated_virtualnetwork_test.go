@@ -92,7 +92,7 @@ func scenarioVirtualnetworks(t *testing.T) {
 	{
 		virtualNetworksClientCreateOrUpdatePollerResponse, err := virtualNetworksClient.BeginCreateOrUpdate(ctx,
 			resourceGroupName,
-			virtualNetworkName,
+			"test-vnet",
 			armnetwork.VirtualNetwork{
 				Location: to.StringPtr(location),
 				Properties: &armnetwork.VirtualNetworkPropertiesFormat{
@@ -135,7 +135,7 @@ func scenarioVirtualnetworks(t *testing.T) {
 	{
 		virtualNetworksClientCreateOrUpdatePollerResponse, err := virtualNetworksClient.BeginCreateOrUpdate(ctx,
 			resourceGroupName,
-			virtualNetworkName,
+			"test-vnet",
 			armnetwork.VirtualNetwork{
 				Location: to.StringPtr(location),
 				Properties: &armnetwork.VirtualNetworkPropertiesFormat{
@@ -184,7 +184,7 @@ func scenarioVirtualnetworks(t *testing.T) {
 	{
 		virtualNetworksClientGetResponse, err := virtualNetworksClient.Get(ctx,
 			resourceGroupName,
-			virtualNetworkName,
+			"test-vnet",
 			&armnetwork.VirtualNetworksClientGetOptions{Expand: nil})
 		if err != nil {
 			t.Fatalf("Request error: %v", err)
@@ -222,7 +222,7 @@ func scenarioVirtualnetworks(t *testing.T) {
 	// From step VirtualNetworks_ListUsage
 	{
 		virtualNetworksClientListUsagePager := virtualNetworksClient.ListUsage(resourceGroupName,
-			virtualNetworkName,
+			"vnetName",
 			nil)
 		for virtualNetworksClientListUsagePager.NextPage(ctx) {
 			if err := virtualNetworksClientListUsagePager.Err(); err != nil {
@@ -238,7 +238,7 @@ func scenarioVirtualnetworks(t *testing.T) {
 	{
 		virtualNetworksClientDeletePollerResponse, err := virtualNetworksClient.BeginDelete(ctx,
 			resourceGroupName,
-			virtualNetworkName,
+			"test-vnet",
 			nil)
 		if err != nil {
 			t.Fatalf("Request error: %v", err)

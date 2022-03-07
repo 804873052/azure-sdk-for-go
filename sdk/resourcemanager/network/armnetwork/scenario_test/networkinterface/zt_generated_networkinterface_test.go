@@ -89,12 +89,12 @@ func prepare(t *testing.T) {
 func scenarioVritualnetworkinterface(t *testing.T) {
 	var publicIP string
 	var subnetID string
-	// From step VirtualNetwork_BeginCreateOrUpdat
+	// From step VirtualNetworks_CreateWithSubnet
 	virtualNetworksClient := armnetwork.NewVirtualNetworksClient(subscriptionId, cred, options)
 	{
 		virtualNetworksClientCreateOrUpdatePollerResponse, err := virtualNetworksClient.BeginCreateOrUpdate(ctx,
 			resourceGroupName,
-			virtualNetworkName,
+			"test-vnet",
 			armnetwork.VirtualNetwork{
 				Location: to.StringPtr(location),
 				Properties: &armnetwork.VirtualNetworkPropertiesFormat{
@@ -102,7 +102,13 @@ func scenarioVritualnetworkinterface(t *testing.T) {
 						AddressPrefixes: []*string{
 							to.StringPtr("10.0.0.0/16")},
 					},
-					FlowTimeoutInMinutes: to.Int32Ptr(10),
+					Subnets: []*armnetwork.Subnet{
+						{
+							Name: to.StringPtr("test-1"),
+							Properties: &armnetwork.SubnetPropertiesFormat{
+								AddressPrefix: to.StringPtr("10.0.0.0/24"),
+							},
+						}},
 				},
 			},
 			nil)
@@ -131,47 +137,7 @@ func scenarioVritualnetworkinterface(t *testing.T) {
 			}
 		}
 		t.Logf("Response result: %#v\n", response.VirtualNetworksClientCreateOrUpdateResult)
-	}
-
-	// From step Subnets_BeginCreateOrUpdate
-	subnetsClient := armnetwork.NewSubnetsClient(subscriptionId, cred, options)
-	{
-		subnetsClientCreateOrUpdatePollerResponse, err := subnetsClient.BeginCreateOrUpdate(ctx,
-			resourceGroupName,
-			virtualNetworkName,
-			"subnet1",
-			armnetwork.Subnet{
-				Properties: &armnetwork.SubnetPropertiesFormat{
-					AddressPrefix: to.StringPtr("10.0.0.0/16"),
-				},
-			},
-			nil)
-		if err != nil {
-			t.Fatalf("Request error: %v", err)
-		}
-		var response armnetwork.SubnetsClientCreateOrUpdateResponse
-		if recording.GetRecordMode() == recording.PlaybackMode {
-			for {
-				_, err = subnetsClientCreateOrUpdatePollerResponse.Poller.Poll(ctx)
-				if err != nil {
-					t.Fatalf("Request error: %v", err)
-				}
-				if subnetsClientCreateOrUpdatePollerResponse.Poller.Done() {
-					response, err = subnetsClientCreateOrUpdatePollerResponse.Poller.FinalResponse(ctx)
-					if err != nil {
-						t.Fatalf("Request error: %v", err)
-					}
-					break
-				}
-			}
-		} else {
-			response, err = subnetsClientCreateOrUpdatePollerResponse.PollUntilDone(ctx, 10*time.Second)
-			if err != nil {
-				t.Fatalf("Request error: %v", err)
-			}
-		}
-		t.Logf("Response result: %#v\n", response.SubnetsClientCreateOrUpdateResult)
-		subnetID = *response.ID
+		subnetID = *response.Properties.Subnets[0].ID
 	}
 
 	// From step PublicIpAddress_CreateDefaults

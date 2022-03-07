@@ -24,17 +24,15 @@ import (
 )
 
 var (
-	ctx                context.Context
-	cred               azcore.TokenCredential
-	pathToPackage      = "sdk/resourcemanager/network/armnetwork/scenario_test/subnets/testdata"
-	options            *arm.ClientOptions
-	resourceGroup      *armresources.ResourceGroup
-	resourceName       string
-	subNetName         = "scenarios_subnet"
-	virtualNetworkName = "scenarios_vn"
-	location           = scenario_test.GetEnv("LOCATION", "eastus")
-	resourceGroupName  = scenario_test.GetEnv("RESOURCE_GROUP_NAME", "")
-	subscriptionId     = scenario_test.GetEnv("SUBSCRIPTION_ID", scenario_test.GetEnv("AZURE_SUBSCRIPTION_ID", ""))
+	ctx               context.Context
+	cred              azcore.TokenCredential
+	pathToPackage     = "sdk/resourcemanager/network/armnetwork/scenario_test/subnets/testdata"
+	options           *arm.ClientOptions
+	resourceGroup     *armresources.ResourceGroup
+	resourceName      string
+	location          = scenario_test.GetEnv("LOCATION", "eastus")
+	resourceGroupName = scenario_test.GetEnv("RESOURCE_GROUP_NAME", "")
+	subscriptionId    = scenario_test.GetEnv("SUBSCRIPTION_ID", scenario_test.GetEnv("AZURE_SUBSCRIPTION_ID", ""))
 )
 
 func TestSubnets(t *testing.T) {
@@ -88,6 +86,7 @@ func prepare(t *testing.T) {
 }
 
 func scenarioSubnets(t *testing.T) {
+	virtualNetworkName := "scenarios_vn"
 	// From step VirtualNetwork_BeginCreateOrUpdat
 	virtualNetworksClient := armnetwork.NewVirtualNetworksClient(subscriptionId, cred, options)
 	{
