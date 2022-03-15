@@ -1,5 +1,5 @@
 {
-  "commit": "81ab10cd9d46a85258b710c6150ec48021c6d202",
+  "commit": "9aff6fbac1975af94f6a3bc415be84f67d3311ee",
   "readme": "/_/azure-rest-api-specs/specification/streamanalytics/resource-manager/readme.md",
   "tag": "package-pure-2020-03",
   "use": "@microsoft.azure/autorest.go@2.1.187",
