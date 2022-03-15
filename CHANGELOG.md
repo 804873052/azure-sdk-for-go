@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## `v62.3.0`
+
+### Updated Packages
+
+| Package Path | Changelog |
+| :--- | :---: |
+| `github.com/Azure/azure-sdk-for-go/services/streamanalytics/mgmt/2020-03-01/streamanalytics` | [details](https://github.com/Azure/azure-sdk-for-go/tree/main/services/streamanalytics/mgmt/2020-03-01/streamanalytics/CHANGELOG.md) |
+
 ## `v62.2.0`
 
 ### New Packages
