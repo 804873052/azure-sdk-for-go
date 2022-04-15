@@ -1,5 +1,43 @@
 # Release History
 
+## 0.4.0 (2022-04-15)
+### Breaking Changes
+
+- Function `*JobsClient.List` has been removed
+- Function `*ResourceGuardsClient.GetDeleteProtectedItemRequestsObjects` has been removed
+- Function `*ResourceGuardsClient.GetDisableSoftDeleteRequestsObjects` has been removed
+- Function `*ResourceGuardsClient.GetResourcesInResourceGroup` has been removed
+- Function `*ResourceGuardsClient.GetBackupSecurityPINRequestsObjects` has been removed
+- Function `*ResourceGuardsClient.GetUpdateProtectionPolicyRequestsObjects` has been removed
+- Function `*ResourceGuardsClient.GetResourcesInSubscription` has been removed
+- Function `*BackupVaultsClient.GetInSubscription` has been removed
+- Function `*BackupVaultsClient.GetInResourceGroup` has been removed
+- Function `*BackupInstancesClient.List` has been removed
+- Function `*BackupPoliciesClient.List` has been removed
+- Function `*ResourceGuardsClient.GetDeleteResourceGuardProxyRequestsObjects` has been removed
+- Function `*RecoveryPointsClient.List` has been removed
+- Function `*OperationsClient.List` has been removed
+- Function `*ResourceGuardsClient.GetUpdateProtectedItemRequestsObjects` has been removed
+
+### Features Added
+
+- New function `*JobsClient.NewListPager(string, string, *JobsClientListOptions) *runtime.Pager[JobsClientListResponse]`
+- New function `*ResourceGuardsClient.NewGetDisableSoftDeleteRequestsObjectsPager(string, string, *ResourceGuardsClientGetDisableSoftDeleteRequestsObjectsOptions) *runtime.Pager[ResourceGuardsClientGetDisableSoftDeleteRequestsObjectsResponse]`
+- New function `*BackupVaultsClient.NewGetInSubscriptionPager(*BackupVaultsClientGetInSubscriptionOptions) *runtime.Pager[BackupVaultsClientGetInSubscriptionResponse]`
+- New function `*OperationsClient.NewListPager(*OperationsClientListOptions) *runtime.Pager[OperationsClientListResponse]`
+- New function `*ResourceGuardsClient.NewGetDeleteResourceGuardProxyRequestsObjectsPager(string, string, *ResourceGuardsClientGetDeleteResourceGuardProxyRequestsObjectsOptions) *runtime.Pager[ResourceGuardsClientGetDeleteResourceGuardProxyRequestsObjectsResponse]`
+- New function `*ResourceGuardsClient.NewGetResourcesInSubscriptionPager(*ResourceGuardsClientGetResourcesInSubscriptionOptions) *runtime.Pager[ResourceGuardsClientGetResourcesInSubscriptionResponse]`
+- New function `*BackupPoliciesClient.NewListPager(string, string, *BackupPoliciesClientListOptions) *runtime.Pager[BackupPoliciesClientListResponse]`
+- New function `*ResourceGuardsClient.NewGetBackupSecurityPINRequestsObjectsPager(string, string, *ResourceGuardsClientGetBackupSecurityPINRequestsObjectsOptions) *runtime.Pager[ResourceGuardsClientGetBackupSecurityPINRequestsObjectsResponse]`
+- New function `*RecoveryPointsClient.NewListPager(string, string, string, *RecoveryPointsClientListOptions) *runtime.Pager[RecoveryPointsClientListResponse]`
+- New function `*BackupVaultsClient.NewGetInResourceGroupPager(string, *BackupVaultsClientGetInResourceGroupOptions) *runtime.Pager[BackupVaultsClientGetInResourceGroupResponse]`
+- New function `*BackupInstancesClient.NewListPager(string, string, *BackupInstancesClientListOptions) *runtime.Pager[BackupInstancesClientListResponse]`
+- New function `*ResourceGuardsClient.NewGetDeleteProtectedItemRequestsObjectsPager(string, string, *ResourceGuardsClientGetDeleteProtectedItemRequestsObjectsOptions) *runtime.Pager[ResourceGuardsClientGetDeleteProtectedItemRequestsObjectsResponse]`
+- New function `*ResourceGuardsClient.NewGetUpdateProtectedItemRequestsObjectsPager(string, string, *ResourceGuardsClientGetUpdateProtectedItemRequestsObjectsOptions) *runtime.Pager[ResourceGuardsClientGetUpdateProtectedItemRequestsObjectsResponse]`
+- New function `*ResourceGuardsClient.NewGetResourcesInResourceGroupPager(string, *ResourceGuardsClientGetResourcesInResourceGroupOptions) *runtime.Pager[ResourceGuardsClientGetResourcesInResourceGroupResponse]`
+- New function `*ResourceGuardsClient.NewGetUpdateProtectionPolicyRequestsObjectsPager(string, string, *ResourceGuardsClientGetUpdateProtectionPolicyRequestsObjectsOptions) *runtime.Pager[ResourceGuardsClientGetUpdateProtectionPolicyRequestsObjectsResponse]`
+
+
 ## 0.3.0 (2022-04-11)
 ### Breaking Changes
 
