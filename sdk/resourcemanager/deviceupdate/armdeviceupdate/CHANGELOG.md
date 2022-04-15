@@ -1,5 +1,27 @@
 # Release History
 
+## 0.4.0 (2022-04-15)
+### Breaking Changes
+
+- Function `*PrivateLinkResourcesClient.ListByAccount` has been removed
+- Function `*AccountsClient.ListByResourceGroup` has been removed
+- Function `*AccountsClient.ListBySubscription` has been removed
+- Function `*InstancesClient.ListByAccount` has been removed
+- Function `*PrivateEndpointConnectionsClient.ListByAccount` has been removed
+- Function `*PrivateEndpointConnectionProxiesClient.ListByAccount` has been removed
+- Function `*OperationsClient.List` has been removed
+
+### Features Added
+
+- New function `*AccountsClient.NewListBySubscriptionPager(*AccountsClientListBySubscriptionOptions) *runtime.Pager[AccountsClientListBySubscriptionResponse]`
+- New function `*OperationsClient.NewListPager(*OperationsClientListOptions) *runtime.Pager[OperationsClientListResponse]`
+- New function `*AccountsClient.NewListByResourceGroupPager(string, *AccountsClientListByResourceGroupOptions) *runtime.Pager[AccountsClientListByResourceGroupResponse]`
+- New function `*InstancesClient.NewListByAccountPager(string, string, *InstancesClientListByAccountOptions) *runtime.Pager[InstancesClientListByAccountResponse]`
+- New function `*PrivateEndpointConnectionProxiesClient.NewListByAccountPager(string, string, *PrivateEndpointConnectionProxiesClientListByAccountOptions) *runtime.Pager[PrivateEndpointConnectionProxiesClientListByAccountResponse]`
+- New function `*PrivateEndpointConnectionsClient.NewListByAccountPager(string, string, *PrivateEndpointConnectionsClientListByAccountOptions) *runtime.Pager[PrivateEndpointConnectionsClientListByAccountResponse]`
+- New function `*PrivateLinkResourcesClient.NewListByAccountPager(string, string, *PrivateLinkResourcesClientListByAccountOptions) *runtime.Pager[PrivateLinkResourcesClientListByAccountResponse]`
+
+
 ## 0.3.0 (2022-04-11)
 ### Breaking Changes
 
