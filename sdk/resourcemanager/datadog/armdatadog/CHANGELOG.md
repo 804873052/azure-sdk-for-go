@@ -1,5 +1,33 @@
 # Release History
 
+## 0.4.0 (2022-04-15)
+### Breaking Changes
+
+- Function `*TagRulesClient.List` has been removed
+- Function `*MonitorsClient.ListMonitoredResources` has been removed
+- Function `*MonitorsClient.ListHosts` has been removed
+- Function `*MonitorsClient.List` has been removed
+- Function `*MonitorsClient.ListLinkedResources` has been removed
+- Function `*SingleSignOnConfigurationsClient.List` has been removed
+- Function `*OperationsClient.List` has been removed
+- Function `*MonitorsClient.ListAPIKeys` has been removed
+- Function `*MarketplaceAgreementsClient.List` has been removed
+- Function `*MonitorsClient.ListByResourceGroup` has been removed
+
+### Features Added
+
+- New function `*MonitorsClient.NewListMonitoredResourcesPager(string, string, *MonitorsClientListMonitoredResourcesOptions) *runtime.Pager[MonitorsClientListMonitoredResourcesResponse]`
+- New function `*MonitorsClient.NewListHostsPager(string, string, *MonitorsClientListHostsOptions) *runtime.Pager[MonitorsClientListHostsResponse]`
+- New function `*MonitorsClient.NewListPager(*MonitorsClientListOptions) *runtime.Pager[MonitorsClientListResponse]`
+- New function `*MonitorsClient.NewListAPIKeysPager(string, string, *MonitorsClientListAPIKeysOptions) *runtime.Pager[MonitorsClientListAPIKeysResponse]`
+- New function `*MonitorsClient.NewListLinkedResourcesPager(string, string, *MonitorsClientListLinkedResourcesOptions) *runtime.Pager[MonitorsClientListLinkedResourcesResponse]`
+- New function `*MonitorsClient.NewListByResourceGroupPager(string, *MonitorsClientListByResourceGroupOptions) *runtime.Pager[MonitorsClientListByResourceGroupResponse]`
+- New function `*TagRulesClient.NewListPager(string, string, *TagRulesClientListOptions) *runtime.Pager[TagRulesClientListResponse]`
+- New function `*OperationsClient.NewListPager(*OperationsClientListOptions) *runtime.Pager[OperationsClientListResponse]`
+- New function `*SingleSignOnConfigurationsClient.NewListPager(string, string, *SingleSignOnConfigurationsClientListOptions) *runtime.Pager[SingleSignOnConfigurationsClientListResponse]`
+- New function `*MarketplaceAgreementsClient.NewListPager(*MarketplaceAgreementsClientListOptions) *runtime.Pager[MarketplaceAgreementsClientListResponse]`
+
+
 ## 0.3.0 (2022-04-11)
 ### Breaking Changes
 
