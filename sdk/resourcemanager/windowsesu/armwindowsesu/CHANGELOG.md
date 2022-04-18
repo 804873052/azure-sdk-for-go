@@ -1,5 +1,19 @@
 # Release History
 
+## 0.4.0 (2022-04-18)
+### Breaking Changes
+
+- Function `*MultipleActivationKeysClient.List` has been removed
+- Function `*MultipleActivationKeysClient.ListByResourceGroup` has been removed
+- Function `*OperationsClient.List` has been removed
+
+### Features Added
+
+- New function `*OperationsClient.NewListPager(*OperationsClientListOptions) *runtime.Pager[OperationsClientListResponse]`
+- New function `*MultipleActivationKeysClient.NewListPager(*MultipleActivationKeysClientListOptions) *runtime.Pager[MultipleActivationKeysClientListResponse]`
+- New function `*MultipleActivationKeysClient.NewListByResourceGroupPager(string, *MultipleActivationKeysClientListByResourceGroupOptions) *runtime.Pager[MultipleActivationKeysClientListByResourceGroupResponse]`
+
+
 ## 0.3.0 (2022-04-13)
 ### Breaking Changes
 
