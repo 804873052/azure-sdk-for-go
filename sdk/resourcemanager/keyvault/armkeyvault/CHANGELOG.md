@@ -1,5 +1,29 @@
 # Release History
 
+## 1.1.0 (2022-05-18)
+### Features Added
+
+- New const `KeyRotationPolicyActionTypeRotate`
+- New const `JSONWebKeyOperationRelease`
+- New const `KeyPermissionsSetrotationpolicy`
+- New const `KeyPermissionsRelease`
+- New const `KeyRotationPolicyActionTypeNotify`
+- New const `KeyPermissionsGetrotationpolicy`
+- New const `KeyPermissionsRotate`
+- New function `RotationPolicy.MarshalJSON() ([]byte, error)`
+- New function `PossibleKeyRotationPolicyActionTypeValues() []KeyRotationPolicyActionType`
+- New function `*KeyReleasePolicy.UnmarshalJSON([]byte) error`
+- New function `KeyReleasePolicy.MarshalJSON() ([]byte, error)`
+- New struct `Action`
+- New struct `KeyReleasePolicy`
+- New struct `KeyRotationPolicyAttributes`
+- New struct `LifetimeAction`
+- New struct `RotationPolicy`
+- New struct `Trigger`
+- New field `RotationPolicy` in struct `KeyProperties`
+- New field `ReleasePolicy` in struct `KeyProperties`
+
+
 ## 1.0.0 (2022-05-16)
 ### Breaking Changes
 
