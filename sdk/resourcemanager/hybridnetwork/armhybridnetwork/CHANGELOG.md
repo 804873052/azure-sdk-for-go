@@ -1,5 +1,43 @@
 # Release History
 
+## 2.0.0 (2022-05-18)
+### Breaking Changes
+
+- Struct `OperationList` has been removed
+- Field `OperationList` of struct `OperationsClientListResponse` has been removed
+
+### Features Added
+
+- New const `HTTPMethodPost`
+- New const `HTTPMethodUnknown`
+- New const `HTTPMethodGet`
+- New const `HTTPMethodPatch`
+- New const `HTTPMethodDelete`
+- New const `OriginUserSystem`
+- New const `ActionTypeInternal`
+- New const `HTTPMethodPut`
+- New const `OriginSystem`
+- New const `OriginUser`
+- New function `*NetworkFunctionsClient.BeginExecuteRequest(context.Context, string, string, ExecuteRequestParameters, *NetworkFunctionsClientBeginExecuteRequestOptions) (*runtime.Poller[NetworkFunctionsClientExecuteRequestResponse], error)`
+- New function `PossibleHTTPMethodValues() []HTTPMethod`
+- New function `PossibleActionTypeValues() []ActionType`
+- New function `PossibleOriginValues() []Origin`
+- New function `*VendorSKUsClient.ListCredential(context.Context, string, string, *VendorSKUsClientListCredentialOptions) (VendorSKUsClientListCredentialResponse, error)`
+- New function `*SKUCredential.UnmarshalJSON([]byte) error`
+- New struct `ExecuteRequestParameters`
+- New struct `NetworkFunctionsClientBeginExecuteRequestOptions`
+- New struct `NetworkFunctionsClientExecuteRequestResponse`
+- New struct `OperationListResult`
+- New struct `RequestMetadata`
+- New struct `SKUCredential`
+- New struct `VendorSKUsClientListCredentialOptions`
+- New struct `VendorSKUsClientListCredentialResponse`
+- New anonymous field `OperationListResult` in struct `OperationsClientListResponse`
+- New field `IsDataAction` in struct `Operation`
+- New field `Origin` in struct `Operation`
+- New field `ActionType` in struct `Operation`
+
+
 ## 1.0.0 (2022-05-18)
 ### Breaking Changes
 
