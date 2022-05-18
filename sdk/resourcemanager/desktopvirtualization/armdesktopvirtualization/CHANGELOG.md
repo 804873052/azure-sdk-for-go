@@ -1,5 +1,120 @@
 # Release History
 
+## 2.0.0 (2022-05-18)
+### Breaking Changes
+
+- Type of `ScalingSchedule.RampUpStartTime` has been changed from `*time.Time` to `*Time`
+- Type of `ScalingSchedule.RampDownStartTime` has been changed from `*time.Time` to `*Time`
+- Type of `ScalingSchedule.OffPeakStartTime` has been changed from `*time.Time` to `*Time`
+- Type of `ScalingSchedule.PeakStartTime` has been changed from `*time.Time` to `*Time`
+- Type of `ScalingPlanProperties.HostPoolType` has been changed from `*HostPoolType` to `*ScalingHostPoolType`
+- Function `*OperationsClient.List` has been removed
+- Function `*ScalingSchedule.UnmarshalJSON` has been removed
+- Function `*DesktopsClient.List` has been removed
+- Field `HostPoolType` of struct `ScalingPlanPatchProperties` has been removed
+
+### Features Added
+
+- New const `DayOfWeekSunday`
+- New const `CreatedByTypeUser`
+- New const `PrivateEndpointServiceConnectionStatusPending`
+- New const `HostpoolPublicNetworkAccessEnabledForSessionHostsOnly`
+- New const `DayOfWeekWednesday`
+- New const `PrivateEndpointServiceConnectionStatusApproved`
+- New const `DayOfWeekSaturday`
+- New const `DayOfWeekThursday`
+- New const `PrivateEndpointConnectionProvisioningStateSucceeded`
+- New const `PrivateEndpointConnectionProvisioningStateDeleting`
+- New const `DayOfWeekMonday`
+- New const `HostpoolPublicNetworkAccessDisabled`
+- New const `PrivateEndpointConnectionProvisioningStateFailed`
+- New const `ScalingHostPoolTypePooled`
+- New const `CreatedByTypeKey`
+- New const `DayOfWeekFriday`
+- New const `SessionHostComponentUpdateTypeScheduled`
+- New const `PublicNetworkAccessEnabled`
+- New const `PrivateEndpointConnectionProvisioningStateCreating`
+- New const `CreatedByTypeManagedIdentity`
+- New const `SessionHostComponentUpdateTypeDefault`
+- New const `PublicNetworkAccessDisabled`
+- New const `DayOfWeekTuesday`
+- New const `HostpoolPublicNetworkAccessEnabledForClientsOnly`
+- New const `HostpoolPublicNetworkAccessEnabled`
+- New const `PrivateEndpointServiceConnectionStatusRejected`
+- New const `CreatedByTypeApplication`
+- New function `AgentUpdateProperties.MarshalJSON() ([]byte, error)`
+- New function `PossiblePrivateEndpointServiceConnectionStatusValues() []PrivateEndpointServiceConnectionStatus`
+- New function `PossibleScalingHostPoolTypeValues() []ScalingHostPoolType`
+- New function `PossibleCreatedByTypeValues() []CreatedByType`
+- New function `PrivateLinkResourceProperties.MarshalJSON() ([]byte, error)`
+- New function `SystemData.MarshalJSON() ([]byte, error)`
+- New function `*DesktopsClient.NewListPager(string, string, *DesktopsClientListOptions) *runtime.Pager[DesktopsClientListResponse]`
+- New function `PossiblePrivateEndpointConnectionProvisioningStateValues() []PrivateEndpointConnectionProvisioningState`
+- New function `AgentUpdatePatchProperties.MarshalJSON() ([]byte, error)`
+- New function `PossibleHostpoolPublicNetworkAccessValues() []HostpoolPublicNetworkAccess`
+- New function `PossiblePublicNetworkAccessValues() []PublicNetworkAccess`
+- New function `PossibleDayOfWeekValues() []DayOfWeek`
+- New function `PossibleSessionHostComponentUpdateTypeValues() []SessionHostComponentUpdateType`
+- New function `*SystemData.UnmarshalJSON([]byte) error`
+- New function `*OperationsClient.NewListPager(*OperationsClientListOptions) *runtime.Pager[OperationsClientListResponse]`
+- New struct `AgentUpdatePatchProperties`
+- New struct `AgentUpdateProperties`
+- New struct `MaintenanceWindowPatchProperties`
+- New struct `MaintenanceWindowProperties`
+- New struct `PrivateEndpoint`
+- New struct `PrivateEndpointConnection`
+- New struct `PrivateEndpointConnectionListResultWithSystemData`
+- New struct `PrivateEndpointConnectionProperties`
+- New struct `PrivateEndpointConnectionWithSystemData`
+- New struct `PrivateEndpointConnectionsClientDeleteByHostPoolOptions`
+- New struct `PrivateEndpointConnectionsClientDeleteByHostPoolResponse`
+- New struct `PrivateEndpointConnectionsClientDeleteByWorkspaceOptions`
+- New struct `PrivateEndpointConnectionsClientDeleteByWorkspaceResponse`
+- New struct `PrivateEndpointConnectionsClientGetByHostPoolOptions`
+- New struct `PrivateEndpointConnectionsClientGetByHostPoolResponse`
+- New struct `PrivateEndpointConnectionsClientGetByWorkspaceOptions`
+- New struct `PrivateEndpointConnectionsClientGetByWorkspaceResponse`
+- New struct `PrivateEndpointConnectionsClientListByHostPoolOptions`
+- New struct `PrivateEndpointConnectionsClientListByHostPoolResponse`
+- New struct `PrivateEndpointConnectionsClientListByWorkspaceOptions`
+- New struct `PrivateEndpointConnectionsClientListByWorkspaceResponse`
+- New struct `PrivateEndpointConnectionsClientUpdateByHostPoolOptions`
+- New struct `PrivateEndpointConnectionsClientUpdateByHostPoolResponse`
+- New struct `PrivateEndpointConnectionsClientUpdateByWorkspaceOptions`
+- New struct `PrivateEndpointConnectionsClientUpdateByWorkspaceResponse`
+- New struct `PrivateLinkResource`
+- New struct `PrivateLinkResourceListResult`
+- New struct `PrivateLinkResourceProperties`
+- New struct `PrivateLinkResourcesClientListByHostPoolOptions`
+- New struct `PrivateLinkResourcesClientListByHostPoolResponse`
+- New struct `PrivateLinkResourcesClientListByWorkspaceOptions`
+- New struct `PrivateLinkResourcesClientListByWorkspaceResponse`
+- New struct `PrivateLinkServiceConnectionState`
+- New struct `SystemData`
+- New struct `Time`
+- New field `SystemData` in struct `UserSession`
+- New field `SystemData` in struct `MSIXPackage`
+- New field `SystemData` in struct `Application`
+- New field `SystemData` in struct `ApplicationGroup`
+- New field `PublicNetworkAccess` in struct `WorkspaceProperties`
+- New field `PrivateEndpointConnections` in struct `WorkspaceProperties`
+- New field `Force` in struct `SessionHostsClientUpdateOptions`
+- New field `SystemData` in struct `Workspace`
+- New field `AgentUpdate` in struct `HostPoolPatchProperties`
+- New field `PublicNetworkAccess` in struct `HostPoolPatchProperties`
+- New field `PublicNetworkAccess` in struct `HostPoolProperties`
+- New field `AgentUpdate` in struct `HostPoolProperties`
+- New field `PrivateEndpointConnections` in struct `HostPoolProperties`
+- New field `NextLink` in struct `ResourceProviderOperationList`
+- New field `FriendlyName` in struct `SessionHostProperties`
+- New field `FriendlyName` in struct `SessionHostPatchProperties`
+- New field `SystemData` in struct `HostPool`
+- New field `SystemData` in struct `Desktop`
+- New field `PublicNetworkAccess` in struct `WorkspacePatchProperties`
+- New field `SystemData` in struct `SessionHost`
+- New field `SystemData` in struct `ScalingPlan`
+
+
 ## 1.0.0 (2022-05-18)
 ### Breaking Changes
 
