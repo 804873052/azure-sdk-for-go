@@ -37,15 +37,15 @@ stages:
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
             
-            cd $GO_WORKSPACE_PATH
-            ls -a 
-            git init
-            git remote add fork https://github.com/Azure/azure-sdk-for-go.git
-            git fetch fork
-            git log -4
-
-            cd ../
+            rm -rf $GO_WORKSPACE_PATH
+            cd $GO_PATH/src/github.com/Azure
+            git clone https://github.com/Azure/azure-sdk-for-go.git
             git clone https://github.com/Azure/azure-rest-api-specs.git
+
+            cd azure-sdk-for-go
+            ls -al
+            git remote add fork https://github.com/Azure/azure-sdk-for-go.git
+            git remote -v
 
             go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
 
