@@ -36,13 +36,24 @@ stages:
         - script: |
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
-            go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
             
             cd $GO_WORKSPACE_PATH
-            git log -1
+            git 
+            git remote add fork https://github.com/Azure/azure-sdk-for-go.git
 
             cd ../
             git clone https://github.com/Azure/azure-rest-api-specs.git
 
+            go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
+
             generator issue -t $(azuresdk-github-pat) > sdk-release.json
             cat sdk-release.json
+
+            file_size=`du -b ./sdk-release.json |awk '{print $1}'`
+            echo "file size:" ${file_size}
+            # if [ ${file_size} -le 70 ]; then
+            #   echo "There are no services that need to be released"
+            # else
+            #   echo "run genertor release-v2..."
+            #   generator release-v2 ./azure-sdk-for-go ./azure-rest-api-specs ./sdk-release.json
+            # fi
