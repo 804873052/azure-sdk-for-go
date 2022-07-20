@@ -31,7 +31,7 @@ stages:
           inputs:
             version: '1.18.2'
         
-        - template: ../steps/create-go-workspace.yml
+        - template: /eng/pipelines/templates/steps/create-go-workspace.yml
 
         - script: |
             echo $GO_WORKSPACE_PATH
