@@ -38,7 +38,7 @@ stages:
             echo $GO_PATH
             
             rm -rf $GO_WORKSPACE_PATH
-            cd $GO_PATH/src/github.com/Azure
+            cd $GO_WORKSPACE_PATH/../src/github.com/Azure
             git clone https://github.com/Azure/azure-sdk-for-go.git
             git clone https://github.com/Azure/azure-rest-api-specs.git
 
