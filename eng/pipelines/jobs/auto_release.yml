@@ -38,7 +38,7 @@ stages:
             echo $GO_PATH
             
             cd $GO_WORKSPACE_PATH
-            ll -a 
+            ls -a 
             #git init
             git remote add fork https://github.com/Azure/azure-sdk-for-go.git
             # git fetch fork main
