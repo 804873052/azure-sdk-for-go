@@ -25,7 +25,7 @@ stages:
   - stage: 
     jobs:
     - job: 
-      displayName: Schedule Cron Release
+      displayName: Go Auto Release
       steps:
         - task: GoTool@0
           inputs:
@@ -35,7 +35,14 @@ stages:
 
         - script: |
             echo $GO_WORKSPACE_PATH
-            ls $GO_WORKSPACE_PATH
             echo $GO_PATH
             go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
-            generator
+            
+            cd $GO_WORKSPACE_PATH
+            git log -1
+
+            cd ../
+            git clone https://github.com/Azure/azure-rest-api-specs.git
+
+            generator issue -t $(azuresdk-github-pat) > sdk-release.json
+            cat sdk-release.json
