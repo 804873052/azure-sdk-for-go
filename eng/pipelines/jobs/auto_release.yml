@@ -18,7 +18,8 @@ schedules:
     always: true
 
 variables:
-  - group: Release Secrets for GitHub
+  # - group: Release Secrets for GitHub
+  - group: Alancere_Cred
 
 stages:
   - stage: 
@@ -46,10 +47,28 @@ stages:
             git remote -v
             cd ../
 
-            go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
+            # use Alancere generator
+            mkdir Alancere
+            cd Alancere
+            git clone https://github.com/Alancere/azure-sdk-for-go.git
+            cd azure-sdk-for-go
+            git fetch origin auto_sdk_release
+            git checkout auto_sdk_release
+            cd ./eng/tools/generator
+            go install .
+            cd $GO_WORKSPACE_PATH../
+            ########################
+
+            # go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
 
             generator issue -t $(azuresdk-github-pat) > sdk-release.json
             cat sdk-release.json
+
+            ###
+            echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
+            cat sdk-release.json
+            ###
+          
 
             file_size=`du -b ./sdk-release.json |awk '{print $1}'`
             echo "file size:" ${file_size}
