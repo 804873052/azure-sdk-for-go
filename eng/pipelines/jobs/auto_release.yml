@@ -36,6 +36,10 @@ stages:
         - script: |
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
+
+            ls /usr/bin
+            echo ""
+            ls /usr/local/bin
             
             rm -rf $GO_WORKSPACE_PATH
             pwd
