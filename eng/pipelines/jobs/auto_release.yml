@@ -37,9 +37,7 @@ stages:
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
 
-            ls /usr/bin
-            echo ""
-            ls /usr/local/bin
+            ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
             rm -rf $GO_WORKSPACE_PATH
             pwd
