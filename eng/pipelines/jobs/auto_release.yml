@@ -21,12 +21,6 @@ stages:
     - job: 
       displayName: Go Auto Release
       steps:
-        - task: GoTool@0
-          inputs:
-            version: '1.18.2'
-
-        - template: /eng/pipelines/templates/steps/create-go-workspace.yml
-
         - task: NodeTool@0
           inputs:
             versionSpec: '16.16.0'
@@ -36,6 +30,12 @@ stages:
           inputs:
             command: 'custom'
             customCommand: 'install -g autorest@latest'
+            
+        - task: GoTool@0
+          inputs:
+            version: '1.18.2'
+
+        - template: /eng/pipelines/templates/steps/create-go-workspace.yml
 
         - script: |
             echo GO_WORKSPACE_PATH
