@@ -34,7 +34,7 @@ stages:
         
         - task: Npm@1
           inputs:
-            command: 'ci'
+            command: 'custom'
             customCommand: 'npm install -g autorest'
 
         - script: |
