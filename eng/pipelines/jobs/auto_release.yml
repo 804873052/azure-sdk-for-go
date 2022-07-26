@@ -26,54 +26,60 @@ stages:
             version: '1.18.2'
         
         - template: /eng/pipelines/templates/steps/create-go-workspace.yml
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '16.16.0'
+            checkLatest: true
 
         - script: |
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
+            node -v
+            npm -v
 
-            sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
+            # sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
-            rm -rf $GO_WORKSPACE_PATH
-            pwd
-            cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
+            # rm -rf $GO_WORKSPACE_PATH
+            # pwd
+            # cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
+            # # cd ../
+            # git clone https://github.com/Azure/azure-sdk-for-go.git
+            # git clone https://github.com/Azure/azure-rest-api-specs.git
+
+            # cd azure-sdk-for-go
+            # git remote add fork https://github.com/Alancere/azure-sdk-for-go.git
+            # git remote -v
             # cd ../
-            git clone https://github.com/Azure/azure-sdk-for-go.git
-            git clone https://github.com/Azure/azure-rest-api-specs.git
 
-            cd azure-sdk-for-go
-            git remote add fork https://github.com/Alancere/azure-sdk-for-go.git
-            git remote -v
-            cd ../
+            # # use Alancere generator
+            # mkdir Alancere
+            # cd Alancere
+            # git clone https://github.com/Alancere/azure-sdk-for-go.git
+            # cd azure-sdk-for-go
+            # git fetch origin auto_sdk_release
+            # git checkout auto_sdk_release
+            # cd ./eng/tools/generator
+            # go install .
+            # cd $GO_WORKSPACE_PATH
+            # cd ../
+            # ########################
 
-            # use Alancere generator
-            mkdir Alancere
-            cd Alancere
-            git clone https://github.com/Alancere/azure-sdk-for-go.git
-            cd azure-sdk-for-go
-            git fetch origin auto_sdk_release
-            git checkout auto_sdk_release
-            cd ./eng/tools/generator
-            go install .
-            cd $GO_WORKSPACE_PATH
-            cd ../
-            ########################
+            # # go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
 
-            # go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
+            # generator issue -t $(azuresdk-github-pat) > sdk-release.json
+            # cat sdk-release.json
 
-            generator issue -t $(azuresdk-github-pat) > sdk-release.json
-            cat sdk-release.json
-
-            ###
-            echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
-            cat sdk-release.json
-            ###
+            # ###
+            # echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
+            # cat sdk-release.json
+            # ###
           
 
-            file_size=`du -b ./sdk-release.json |awk '{print $1}'`
-            echo "file size:" ${file_size}
-            if [ ${file_size} -le 70 ]; then
-              echo "There are no services that need to be released"
-            else
-              echo "run genertor release-v2..."
-              generator release-v2 ./azure-sdk-for-go ./azure-rest-api-specs ./sdk-release.json -t $(azuresdk-github-pat)
-            fi
+            # file_size=`du -b ./sdk-release.json |awk '{print $1}'`
+            # echo "file size:" ${file_size}
+            # if [ ${file_size} -le 70 ]; then
+            #   echo "There are no services that need to be released"
+            # else
+            #   echo "run genertor release-v2..."
+            #   generator release-v2 ./azure-sdk-for-go ./azure-rest-api-specs ./sdk-release.json -t $(azuresdk-github-pat)
+            # fi
