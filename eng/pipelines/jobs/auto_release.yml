@@ -35,7 +35,7 @@ stages:
         - task: Npm@1
           inputs:
             command: 'custom'
-            customCommand: 'npm install -g autorest'
+            customCommand: 'install -g autorest'
 
         - script: |
             echo GO_WORKSPACE_PATH
