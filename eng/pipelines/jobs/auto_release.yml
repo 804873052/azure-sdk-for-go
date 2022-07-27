@@ -36,6 +36,9 @@ stages:
 
         - template: /eng/pipelines/templates/steps/create-go-workspace.yml
 
+        - script: |
+            echo 'Get-ExectionPolicy -List' > test.ps1
+            pwsh test.ps1
         - task: PowerShell@2
           inputs:
             targetType: 'inline'
@@ -50,12 +53,13 @@ stages:
             sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
             rm -rf $GO_WORKSPACE_PATH
-            pwd
             cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
+            pwd
+
             # cd ../
             git clone https://github.com/Azure/azure-sdk-for-go.git
             git clone https://github.com/Azure/azure-rest-api-specs.git
-
+            ls -a
             cd azure-sdk-for-go
             git remote add fork https://github.com/Alancere/azure-sdk-for-go.git
             git remote -v
