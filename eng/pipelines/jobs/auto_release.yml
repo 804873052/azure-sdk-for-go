@@ -36,6 +36,7 @@ stages:
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
             echo $(azuresdk-github-pat)
+            exit
 
             sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
