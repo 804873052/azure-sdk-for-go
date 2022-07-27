@@ -10,10 +10,6 @@ schedules:
       - main
     always: true
 
-variables:
-  # - group: Release Secrets for GitHub
-  - group: Alancere_Cred
-
 stages:
   - stage: 
     jobs:
@@ -39,6 +35,7 @@ stages:
         - script: |
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
+            echo $(azuresdk-github-pat)
 
             sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
