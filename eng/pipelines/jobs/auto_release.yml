@@ -16,10 +16,10 @@ stages:
     - job: 
       displayName: Go Auto Release
       steps:
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '16.16.0'
-            checkLatest: true
+        # - task: NodeTool@0
+        #   inputs:
+        #     versionSpec: '16.16.0'
+        #     checkLatest: true
         
         - task: Npm@1
           inputs:
