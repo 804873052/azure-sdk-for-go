@@ -19,9 +19,6 @@ stages:
     jobs:
     - job: 
       displayName: Go Auto Release
-      strategy:
-        maxParallel: 1
-      pool: 'ubuntu-20.04'
       steps:
         - task: NodeTool@0
           inputs:
