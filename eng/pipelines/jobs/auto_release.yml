@@ -40,8 +40,7 @@ stages:
           inputs:
             targetType: 'inline'
             script: |
-              Get-Host
-              $host
+              Get-ExecutionPolicy -list
               Set-ExecutionPolicy RemoteSigned
             
         - script: |
