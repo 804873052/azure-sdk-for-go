@@ -61,7 +61,7 @@ stages:
             git clone https://github.com/Azure/azure-rest-api-specs.git
             ls -a
             cd azure-sdk-for-go
-            git remote add fork https://github.com/Alancere/azure-sdk-for-go.git
+            git remote add fork https://Alancere:$(azuresdk-github-pat)@github.com/Alancere/azure-sdk-for-go.git
             git remote -v
             cd ../
 
