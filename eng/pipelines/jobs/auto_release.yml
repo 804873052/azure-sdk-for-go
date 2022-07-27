@@ -35,13 +35,6 @@ stages:
             version: '1.18.2'
 
         - template: /eng/pipelines/templates/steps/create-go-workspace.yml
-
-        # - task: PowerShell@2
-        #   inputs:
-        #     targetType: 'inline'
-        #     script: |
-        #       Get-ExecutionPolicy -list
-        #       Set-ExecutionPolicy RemoteSigned
             
         - script: |
             echo $GO_WORKSPACE_PATH
@@ -84,8 +77,8 @@ stages:
             cat sdk-release.json
 
             ###
-            echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
-            cat sdk-release.json
+            # echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
+            # cat sdk-release.json
             ###
           
 
