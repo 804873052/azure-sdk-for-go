@@ -36,14 +36,13 @@ stages:
 
         - template: /eng/pipelines/templates/steps/create-go-workspace.yml
 
-        # - task: PowerShell@2
-        #   inputs:
-        #     targetType: 'inline'
-        #     script: 'Set-ExecutionPolicy RemoteSigned'
-        - pwsh: 
-            Get-Host
-            $host
-            Set-ExecutionPolicy RemoteSigned
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              Get-Host
+              $host
+              Set-ExecutionPolicy RemoteSigned
             
         - script: |
             echo $GO_WORKSPACE_PATH
