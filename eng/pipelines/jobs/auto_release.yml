@@ -53,6 +53,9 @@ stages:
             cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
             pwd
 
+            git config --global user.email "ReleaseHelper"
+            git config --global user.name "ReleaseHelper"
+
             # cd ../
             git clone https://github.com/Azure/azure-sdk-for-go.git
             git clone https://github.com/Azure/azure-rest-api-specs.git
@@ -60,8 +63,6 @@ stages:
             cd azure-sdk-for-go
             git remote add fork https://github.com/Alancere/azure-sdk-for-go.git
             git remote -v
-            mv ./eng/scripts/Invoke-MgmtTestgen.ps1 ./eng/scripts/Invoke-MgmtTestGen.ps1
-            ls -a ./eng/scripts/
             cd ../
 
             # use Alancere generator
