@@ -35,13 +35,13 @@ stages:
         - script: |
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
-            exit
 
+            export PATH=$PATH:$HOME/go/bin
             sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
-            rm -rf $GO_WORKSPACE_PATH
-            cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
-            pwd
+            # rm -rf $GO_WORKSPACE_PATH
+            # cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
+            # pwd
 
             git config --global user.email "ReleaseHelper"
             git config --global user.name "ReleaseHelper"
