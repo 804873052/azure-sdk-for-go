@@ -47,7 +47,7 @@ stages:
             git config --global user.name "ReleaseHelper"
 
             cd ../
-            # git clone https://github.com/Azure/azure-sdk-for-go.git
+            git clone https://github.com/Azure/azure-sdk-for-go.git
             git clone https://github.com/Azure/azure-rest-api-specs.git
             
             cd azure-sdk-for-go
@@ -64,11 +64,10 @@ stages:
             git checkout auto_sdk_release
             cd ./eng/tools/generator
             go install .
-            cd $GO_WORKSPACE_PATH
+            # cd $GO_WORKSPACE_PATH
+            cd $(system.defaultWorkingDirectory)
             cd ../
             ########################
-            
-            ls -a
 
             # go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
             pwd
