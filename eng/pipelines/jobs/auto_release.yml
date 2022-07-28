@@ -41,7 +41,7 @@ stages:
             
             # rm -rf $GO_WORKSPACE_PATH
             # cd $(system.defaultWorkingDirectory)/../go/src/github.com/Azure
-            # pwd
+            pwd
 
             git config --global user.email "ReleaseHelper"
             git config --global user.name "ReleaseHelper"
@@ -71,12 +71,12 @@ stages:
             # go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
             pwd
             ls -a
-            generator issue -t $(azuresdk-github-pat) > sdk-release.json
-            cat sdk-release.json
+            sudo generator issue -t $(azuresdk-github-pat) > sdk-release.json
+            sudo cat sdk-release.json
 
             ###
             echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
-            cat sdk-release.json
+            sodu cat sdk-release.json
             ###
           
 
