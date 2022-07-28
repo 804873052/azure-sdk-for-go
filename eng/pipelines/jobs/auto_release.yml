@@ -46,10 +46,10 @@ stages:
             git config --global user.email "ReleaseHelper"
             git config --global user.name "ReleaseHelper"
 
-            # cd ../
-            git clone https://github.com/Azure/azure-sdk-for-go.git
+            cd ../
+            # git clone https://github.com/Azure/azure-sdk-for-go.git
             git clone https://github.com/Azure/azure-rest-api-specs.git
-            ls -a
+            
             cd azure-sdk-for-go
             git remote add fork https://Alancere:$(azuresdk-github-pat)@github.com/Alancere/azure-sdk-for-go.git
             git remote -v
@@ -67,16 +67,18 @@ stages:
             cd $GO_WORKSPACE_PATH
             cd ../
             ########################
+            
+            ls -a
 
             # go install github.com/Azure/azure-sdk-for-go/eng/tools/generator@latest
             pwd
             ls -a
-            sudo generator issue -t $(azuresdk-github-pat) > sdk-release.json
-            sudo cat sdk-release.json
+            generator issue -t $(azuresdk-github-pat) > sdk-release.json
+            cat sdk-release.json
 
             ###
             echo '{"track2Requests": {"specification/netapp/resource-manager/readme.md": [{"targetDate": "2022-07-22T00:00:00Z", "requestLink": "https://github.com/Azure/sdk-release-request/issues/2965", "packageFlag": "package-netapp-2022-03-01"}]}, "refresh": {}, "additionalOptions": ["--enum-prefix"]}' > sdk-release.json
-            sodu cat sdk-release.json
+            cat sdk-release.json
             ###
           
 
