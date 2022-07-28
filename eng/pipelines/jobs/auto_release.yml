@@ -30,11 +30,12 @@ stages:
           inputs:
             version: '1.18.2'
 
-        - template: /eng/pipelines/templates/steps/create-go-workspace.yml
+        # - template: /eng/pipelines/templates/steps/create-go-workspace.yml
             
         - script: |
             echo $GO_WORKSPACE_PATH
             echo $GO_PATH
+            exit
 
             sudo ln -s /usr/bin/pwsh /usr/bin/pwsh.exe
             
