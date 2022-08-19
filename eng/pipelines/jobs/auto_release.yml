@@ -2,13 +2,13 @@ trigger: none
 
 pr: none
 
-schedules:
-  - cron: "0 1 * * *"
-    displayName: Daily release
-    branches:
-      include:
-      - main
-    always: true
+# schedules:
+#   - cron: "0 1 * * *"
+#     displayName: Daily release
+#     branches:
+#       include:
+#       - main
+#     always: true
 
 stages:
   - stage: 
