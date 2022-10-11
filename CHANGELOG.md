@@ -1,12 +1,21 @@
 # CHANGELOG
 
+## `v66.1.0`
+
+### New Packages
+
+- `github.com/Azure/azure-sdk-for-go/services/compute/mgmt/2022-03-03/compute`
+- `github.com/Azure/azure-sdk-for-go/services/compute/mgmt/2022-07-02/compute`
+- `github.com/Azure/azure-sdk-for-go/services/compute/mgmt/2022-08-01/compute`
+- `github.com/Azure/azure-sdk-for-go/services/network/mgmt/2022-05-01/network`
+
 ## `v66.0.0`
 
 ### Breaking Changes
 
 | Package Path | Changelog |
 | :--- | :---: |
-| `github.com/Azure/azure-sdk-for-go/services/preview/securityinsight/mgmt/2022-01-01-preview/securityinsight` | [details](https://github.com/Azure/azure-sdk-for-go/tree/main/services/preview/securityinsight/mgmt/2022-01-01-preview/securityinsight/CHANGELOG.md) |
+| `github.com/Azure/azure-sdk-for-go/services/preview/securityinsight/mgmt/2022-01-01-preview/securityinsight` | [details](https://github.com/Azure/azure-sdk-for-go/blob/v66.0.0/services/preview/securityinsight/mgmt/2022-01-01-preview/securityinsight/CHANGELOG.md) |
 
 ### Others
 Deprecate all old management plane packages. We strongly encourage you to upgrade to continue receiving updates. See [Migration Guide]( https://aka.ms/azsdk/golang/t2/migration) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
