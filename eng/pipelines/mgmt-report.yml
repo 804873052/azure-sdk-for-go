@@ -34,6 +34,8 @@ stages:
                 git config --global user.email "ReleaseHelper"
                 git config --global user.name "ReleaseHelper"
                 
+                echo $(System.DefaultWorkingDirectory)
+                echo $(pwd)
                 pwd
                 ls -a
                 cd ../
