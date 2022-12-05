@@ -1,0 +1,43 @@
+trigger: none
+
+pr: none
+
+# schedules:
+#   - cron: "0 1 22-28 * Sat"
+#     displayName: Daily release
+#     branches:
+#       include:
+#         - main
+#     always: true
+
+stages:
+  - stage:
+    jobs:
+      - job:
+        displayName: Go Auto Release
+        steps:
+          - task: GoTool@0
+            inputs:
+              version: '1.19'
+          - task: PowerShell@2
+            inputs:
+              targetType: 'inline'
+              script: |
+                #!/bin/bash
+                set -ex
+                
+                export PATH=$PATH:$HOME/go/bin
+                export AZURE_STORAGE_PRIMARY_ACCOUNT_KEY=$1
+                export AZURE_DEVOPS_PERSONAL_ACCESS_TOKEN=$2
+                
+                git config --global user.email "ReleaseHelper"
+                git config --global user.name "ReleaseHelper"
+                
+                pwd
+                ls -a
+                cd ../
+                git clone https://github.com/Azure/azure-sdk-for-go.git
+                
+                go install github.com/Azure/azure-sdk-for-go/eng/tools/mgmtreport@latest
+                
+                mgmtreport -sdkpath=$(System.DefaultWorkingDirectory)/azure-sdk-for-go -storageaccount=chenjieshistorage
