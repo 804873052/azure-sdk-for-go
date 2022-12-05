@@ -19,7 +19,8 @@ stages:
           - task: GoTool@0
             inputs:
               version: '1.19'
-          - task: PowerShell@2
+
+          - task: Bash@3
             inputs:
               targetType: 'inline'
               script: |
@@ -41,3 +42,4 @@ stages:
                 go install github.com/Azure/azure-sdk-for-go/eng/tools/mgmtreport@latest
                 
                 mgmtreport -sdkpath=$(System.DefaultWorkingDirectory)/azure-sdk-for-go -storageaccount=chenjieshistorage
+
