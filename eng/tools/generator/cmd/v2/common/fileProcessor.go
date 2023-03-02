@@ -169,7 +169,7 @@ func ChangeConfigWithCommitID(path, repoURL, commitID, specRPName string) error 
 	for i, line := range lines {
 		if strings.Contains(line, autorest_md_file_suffix) {
 			indexResourceManager := strings.Index(line, "resource-manager")
-			indexReadme := strings.Index(line, "readme")
+			indexReadme := strings.Index(line, "readme.md")
 			resourceManagerPath := []byte(line)
 			resourceManagerPath = resourceManagerPath[indexResourceManager : indexReadme-1]
 
