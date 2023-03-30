@@ -18,18 +18,18 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/workloads/armworkloads"
 )
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_Distributed.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_Distributed.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationWithCustomResourceNamesForDistributedSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -396,18 +396,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// 							}
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_HA_AvSet.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_HA_AvSet.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationWithCustomResourceNamesForHaSystemWithAvailabilitySet() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -880,18 +880,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// 																}
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_HA_AvZone.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_HA_AvZone.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationWithCustomResourceNamesForHaSystemWithAvailabilityZone() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -1358,18 +1358,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// 																}
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_SingleServer.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_CustomFullResourceNames_SingleServer.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationWithCustomResourceNamesForSingleServerSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -1510,18 +1510,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// 				}
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForDistributedSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -1739,18 +1739,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForDis
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_HA_AvSet.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_HA_AvSet.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForHaSystemWithAvailabilitySet() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -1974,18 +1974,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForHaS
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_HA_AvZone.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_HA_AvZone.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForHaSystemWithAvailabilityZone() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -2209,18 +2209,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForHaS
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_SingleServer.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_SingleServer.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForSingleServerSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -2331,18 +2331,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureOnlyForSin
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_Distributed.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_Distributed.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAndOsConfigurationForDistributedSystemRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -2643,18 +2643,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAn
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_HA_AvSet.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_HA_AvSet.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAndOsConfigurationForHaSystemWithAvailabilitySetRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -2961,18 +2961,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAn
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_HA_AvZone.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_HA_AvZone.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAndOsConfigurationForHaSystemWithAvailabilityZoneRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -3279,18 +3279,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAn
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_SingleServer.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_DiskDetails_SingleServer.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAndOsConfigurationsForSingleServerSystemRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -3497,18 +3497,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithDiskAn
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_Distributed.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_Distributed.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationForDistributedSystemRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -3717,18 +3717,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_HA_AvSet.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_HA_AvSet.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationForHaSystemWithAvailabilitySetRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -3943,18 +3943,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_HA_AvZone.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_HA_AvZone.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationForHaSystemWithAvailabilityZoneRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -4169,18 +4169,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_SingleServer.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_WithOSConfig_SingleServer.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConfigurationForSingleServerSystemRecommended() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -4295,18 +4295,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithOsConf
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed_CreateTrans.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed_CreateTrans.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithANewSapTransFileshare() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -4529,18 +4529,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithANewSa
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed_MountTrans.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed_MountTrans.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithAnExistingSapTransFileshare() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -4763,18 +4763,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithAnExis
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed_SkipTransMount.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Distributed_SkipTransMount.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithoutSapTransFileshare() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -4993,18 +4993,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_createInfrastructureWithoutSap
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_Distributed.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_Distributed.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationOnADistributedSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("eastus2"),
 		Tags: map[string]*string{
 			"created by": to.Ptr("azureuser"),
@@ -5226,18 +5226,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationO
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_SingleServer.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_SingleServer.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationOnASingleServerSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -5358,18 +5358,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationO
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_HA_AvSet.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_HA_AvSet.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationOnAnHaSystemWithAvailabilitySet() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -5590,18 +5590,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationO
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_HA_AvZone.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_DetectInstallation_HA_AvZone.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationOnAnHaSystemWithAvailabilityZone() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("westcentralus"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -5822,18 +5822,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_detectSapSoftwareInstallationO
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Install_Distributed.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Install_Distributed.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_installSapSoftwareOnDistributedSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("eastus2"),
 		Tags: map[string]*string{
 			"created by": to.Ptr("azureuser"),
@@ -6059,18 +6059,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_installSapSoftwareOnDistribute
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Install_SingleServer.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Install_SingleServer.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_installSapSoftwareOnSingleServerSystem() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("eastus2"),
 		Tags:     map[string]*string{},
 		Properties: &armworkloads.SAPVirtualInstanceProperties{
@@ -6240,18 +6240,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_installSapSoftwareOnSingleServ
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Discover_CustomMrgStorageAccountName.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Discover_CustomMrgStorageAccountName.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_registerExistingSapSystemAsVirtualInstanceForSapSolutionsWithOptionalCustomizations() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("northeurope"),
 		Tags: map[string]*string{
 			"createdby": to.Ptr("abc@microsoft.com"),
@@ -6310,18 +6310,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_registerExistingSapSystemAsVir
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Discover.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Create_Discover.json
 func ExampleSAPVirtualInstancesClient_BeginCreate_registerExistingSapSystemAsVirtualInstanceForSapSolutions() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginCreate(ctx, "test-rg", "X00", armworkloads.SAPVirtualInstance{
 		Location: to.Ptr("northeurope"),
 		Tags: map[string]*string{
 			"createdby": to.Ptr("abc@microsoft.com"),
@@ -6378,18 +6378,18 @@ func ExampleSAPVirtualInstancesClient_BeginCreate_registerExistingSapSystemAsVir
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Get.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Get.json
 func ExampleSAPVirtualInstancesClient_Get() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	res, err := client.Get(ctx, "test-rg", "X00", nil)
+	res, err := clientFactory.NewSAPVirtualInstancesClient().Get(ctx, "test-rg", "X00", nil)
 	if err != nil {
 		log.Fatalf("failed to finish the request: %v", err)
 	}
@@ -6519,18 +6519,18 @@ func ExampleSAPVirtualInstancesClient_Get() {
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Update.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Update.json
 func ExampleSAPVirtualInstancesClient_Update() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	res, err := client.Update(ctx, "test-rg", "X00", armworkloads.UpdateSAPVirtualInstanceRequest{
+	res, err := clientFactory.NewSAPVirtualInstancesClient().Update(ctx, "test-rg", "X00", armworkloads.UpdateSAPVirtualInstanceRequest{
 		Identity: &armworkloads.UserAssignedServiceIdentity{
 			Type: to.Ptr(armworkloads.ManagedServiceIdentityTypeNone),
 		},
@@ -6580,18 +6580,18 @@ func ExampleSAPVirtualInstancesClient_Update() {
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Delete.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Delete.json
 func ExampleSAPVirtualInstancesClient_BeginDelete() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("6d875e77-e412-4d7d-9af4-8895278b4443", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginDelete(ctx, "test-rg", "X00", nil)
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginDelete(ctx, "test-rg", "X00", nil)
 	if err != nil {
 		log.Fatalf("failed to finish the request: %v", err)
 	}
@@ -6611,18 +6611,18 @@ func ExampleSAPVirtualInstancesClient_BeginDelete() {
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_ListByResourceGroup.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_ListByResourceGroup.json
 func ExampleSAPVirtualInstancesClient_NewListByResourceGroupPager() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("6d875e77-e412-4d7d-9af4-8895278b4443", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	pager := client.NewListByResourceGroupPager("test-rg", nil)
+	pager := clientFactory.NewSAPVirtualInstancesClient().NewListByResourceGroupPager("test-rg", nil)
 	for pager.More() {
 		page, err := pager.NextPage(ctx)
 		if err != nil {
@@ -6878,18 +6878,18 @@ func ExampleSAPVirtualInstancesClient_NewListByResourceGroupPager() {
 	}
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_ListBySubscription.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_ListBySubscription.json
 func ExampleSAPVirtualInstancesClient_NewListBySubscriptionPager() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("6d875e77-e412-4d7d-9af4-8895278b4443", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	pager := client.NewListBySubscriptionPager(nil)
+	pager := clientFactory.NewSAPVirtualInstancesClient().NewListBySubscriptionPager(nil)
 	for pager.More() {
 		page, err := pager.NextPage(ctx)
 		if err != nil {
@@ -7145,18 +7145,18 @@ func ExampleSAPVirtualInstancesClient_NewListBySubscriptionPager() {
 	}
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Start.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Start.json
 func ExampleSAPVirtualInstancesClient_BeginStart() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginStart(ctx, "test-rg", "X00", nil)
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginStart(ctx, "test-rg", "X00", nil)
 	if err != nil {
 		log.Fatalf("failed to finish the request: %v", err)
 	}
@@ -7176,18 +7176,18 @@ func ExampleSAPVirtualInstancesClient_BeginStart() {
 	// }
 }
 
-// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/630ec444f8dd7c09b9cdd5fa99951f8a0d1ad41f/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Stop.json
+// Generated from example definition: https://github.com/Azure/azure-rest-api-specs/blob/9d8a951af5d78e24d9d83592107f8d3c2cc417f5/specification/workloads/resource-manager/Microsoft.Workloads/preview/2022-11-01-preview/examples/sapvirtualinstances/SAPVirtualInstances_Stop.json
 func ExampleSAPVirtualInstancesClient_BeginStop() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
 	ctx := context.Background()
-	client, err := armworkloads.NewSAPVirtualInstancesClient("8e17e36c-42e9-4cd5-a078-7b44883414e0", cred, nil)
+	clientFactory, err := armworkloads.NewClientFactory("<subscription-id>", cred, nil)
 	if err != nil {
 		log.Fatalf("failed to create client: %v", err)
 	}
-	poller, err := client.BeginStop(ctx, "test-rg", "X00", &armworkloads.SAPVirtualInstancesClientBeginStopOptions{Body: &armworkloads.StopRequest{
+	poller, err := clientFactory.NewSAPVirtualInstancesClient().BeginStop(ctx, "test-rg", "X00", &armworkloads.SAPVirtualInstancesClientBeginStopOptions{Body: &armworkloads.StopRequest{
 		SoftStopTimeoutSeconds: to.Ptr[int64](0),
 	},
 	})
