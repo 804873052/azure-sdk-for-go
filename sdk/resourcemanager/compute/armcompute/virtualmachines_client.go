@@ -24,7 +24,7 @@ import (
 // VirtualMachinesClient contains the methods for the VirtualMachines group.
 // Don't use this type directly, use NewVirtualMachinesClient() instead.
 type VirtualMachinesClient struct {
-	internal       *arm.Client
+	internal *arm.Client
 	subscriptionID string
 }
 
@@ -40,7 +40,7 @@ func NewVirtualMachinesClient(subscriptionID string, credential azcore.TokenCred
 	}
 	client := &VirtualMachinesClient{
 		subscriptionID: subscriptionID,
-		internal:       cl,
+	internal: cl,
 	}
 	return client, nil
 }
@@ -194,8 +194,8 @@ func (client *VirtualMachinesClient) captureCreateRequest(ctx context.Context, r
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -346,8 +346,8 @@ func (client *VirtualMachinesClient) createOrUpdateCreateRequest(ctx context.Con
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -702,8 +702,8 @@ func (client *VirtualMachinesClient) installPatchesCreateRequest(ctx context.Con
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, installPatchesInput); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -779,13 +779,13 @@ func (client *VirtualMachinesClient) instanceViewHandleResponse(resp *http.Respo
 //   - resourceGroupName - The name of the resource group.
 //   - options - VirtualMachinesClientListOptions contains the optional parameters for the VirtualMachinesClient.NewListPager
 //     method.
-func (client *VirtualMachinesClient) NewListPager(resourceGroupName string, options *VirtualMachinesClientListOptions) *runtime.Pager[VirtualMachinesClientListResponse] {
+func (client *VirtualMachinesClient) NewListPager(resourceGroupName string, options *VirtualMachinesClientListOptions) (*runtime.Pager[VirtualMachinesClientListResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachinesClientListResponse]{
 		More: func(page VirtualMachinesClientListResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachinesClientListResponse) (VirtualMachinesClientListResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -852,13 +852,13 @@ func (client *VirtualMachinesClient) listHandleResponse(resp *http.Response) (Vi
 // Generated from API version 2023-03-01
 //   - options - VirtualMachinesClientListAllOptions contains the optional parameters for the VirtualMachinesClient.NewListAllPager
 //     method.
-func (client *VirtualMachinesClient) NewListAllPager(options *VirtualMachinesClientListAllOptions) *runtime.Pager[VirtualMachinesClientListAllResponse] {
+func (client *VirtualMachinesClient) NewListAllPager(options *VirtualMachinesClientListAllOptions) (*runtime.Pager[VirtualMachinesClientListAllResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachinesClientListAllResponse]{
 		More: func(page VirtualMachinesClientListAllResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachinesClientListAllResponse) (VirtualMachinesClientListAllResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListAllPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListAllPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -925,13 +925,13 @@ func (client *VirtualMachinesClient) listAllHandleResponse(resp *http.Response) 
 //   - vmName - The name of the virtual machine.
 //   - options - VirtualMachinesClientListAvailableSizesOptions contains the optional parameters for the VirtualMachinesClient.NewListAvailableSizesPager
 //     method.
-func (client *VirtualMachinesClient) NewListAvailableSizesPager(resourceGroupName string, vmName string, options *VirtualMachinesClientListAvailableSizesOptions) *runtime.Pager[VirtualMachinesClientListAvailableSizesResponse] {
+func (client *VirtualMachinesClient) NewListAvailableSizesPager(resourceGroupName string, vmName string, options *VirtualMachinesClientListAvailableSizesOptions) (*runtime.Pager[VirtualMachinesClientListAvailableSizesResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachinesClientListAvailableSizesResponse]{
 		More: func(page VirtualMachinesClientListAvailableSizesResponse) bool {
 			return false
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachinesClientListAvailableSizesResponse) (VirtualMachinesClientListAvailableSizesResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListAvailableSizesPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListAvailableSizesPager")
 			req, err := client.listAvailableSizesCreateRequest(ctx, resourceGroupName, vmName, options)
 			if err != nil {
 				return VirtualMachinesClientListAvailableSizesResponse{}, err
@@ -990,13 +990,13 @@ func (client *VirtualMachinesClient) listAvailableSizesHandleResponse(resp *http
 //   - location - The location for which virtual machines under the subscription are queried.
 //   - options - VirtualMachinesClientListByLocationOptions contains the optional parameters for the VirtualMachinesClient.NewListByLocationPager
 //     method.
-func (client *VirtualMachinesClient) NewListByLocationPager(location string, options *VirtualMachinesClientListByLocationOptions) *runtime.Pager[VirtualMachinesClientListByLocationResponse] {
+func (client *VirtualMachinesClient) NewListByLocationPager(location string, options *VirtualMachinesClientListByLocationOptions) (*runtime.Pager[VirtualMachinesClientListByLocationResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachinesClientListByLocationResponse]{
 		More: func(page VirtualMachinesClientListByLocationResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachinesClientListByLocationResponse) (VirtualMachinesClientListByLocationResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListByLocationPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachinesClient.NewListByLocationPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -1423,8 +1423,8 @@ func (client *VirtualMachinesClient) reimageCreateRequest(ctx context.Context, r
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.Parameters != nil {
 		if err := runtime.MarshalAsJSON(req, *options.Parameters); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1643,8 +1643,8 @@ func (client *VirtualMachinesClient) runCommandCreateRequest(ctx context.Context
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json, text/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -1846,7 +1846,8 @@ func (client *VirtualMachinesClient) updateCreateRequest(ctx context.Context, re
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
+

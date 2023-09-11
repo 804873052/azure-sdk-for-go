@@ -24,7 +24,7 @@ import (
 // VirtualMachineScaleSetsClient contains the methods for the VirtualMachineScaleSets group.
 // Don't use this type directly, use NewVirtualMachineScaleSetsClient() instead.
 type VirtualMachineScaleSetsClient struct {
-	internal       *arm.Client
+	internal *arm.Client
 	subscriptionID string
 }
 
@@ -40,7 +40,7 @@ func NewVirtualMachineScaleSetsClient(subscriptionID string, credential azcore.T
 	}
 	client := &VirtualMachineScaleSetsClient{
 		subscriptionID: subscriptionID,
-		internal:       cl,
+	internal: cl,
 	}
 	return client, nil
 }
@@ -99,8 +99,8 @@ func (client *VirtualMachineScaleSetsClient) convertToSinglePlacementGroupCreate
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -175,8 +175,8 @@ func (client *VirtualMachineScaleSetsClient) createOrUpdateCreateRequest(ctx con
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -258,8 +258,8 @@ func (client *VirtualMachineScaleSetsClient) deallocateCreateRequest(ctx context
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -414,8 +414,8 @@ func (client *VirtualMachineScaleSetsClient) deleteInstancesCreateRequest(ctx co
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, vmInstanceIDs); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -633,13 +633,13 @@ func (client *VirtualMachineScaleSetsClient) getInstanceViewHandleResponse(resp 
 //   - vmScaleSetName - The name of the VM scale set.
 //   - options - VirtualMachineScaleSetsClientGetOSUpgradeHistoryOptions contains the optional parameters for the VirtualMachineScaleSetsClient.NewGetOSUpgradeHistoryPager
 //     method.
-func (client *VirtualMachineScaleSetsClient) NewGetOSUpgradeHistoryPager(resourceGroupName string, vmScaleSetName string, options *VirtualMachineScaleSetsClientGetOSUpgradeHistoryOptions) *runtime.Pager[VirtualMachineScaleSetsClientGetOSUpgradeHistoryResponse] {
+func (client *VirtualMachineScaleSetsClient) NewGetOSUpgradeHistoryPager(resourceGroupName string, vmScaleSetName string, options *VirtualMachineScaleSetsClientGetOSUpgradeHistoryOptions) (*runtime.Pager[VirtualMachineScaleSetsClientGetOSUpgradeHistoryResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachineScaleSetsClientGetOSUpgradeHistoryResponse]{
 		More: func(page VirtualMachineScaleSetsClientGetOSUpgradeHistoryResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachineScaleSetsClientGetOSUpgradeHistoryResponse) (VirtualMachineScaleSetsClientGetOSUpgradeHistoryResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewGetOSUpgradeHistoryPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewGetOSUpgradeHistoryPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -704,13 +704,13 @@ func (client *VirtualMachineScaleSetsClient) getOSUpgradeHistoryHandleResponse(r
 //   - resourceGroupName - The name of the resource group.
 //   - options - VirtualMachineScaleSetsClientListOptions contains the optional parameters for the VirtualMachineScaleSetsClient.NewListPager
 //     method.
-func (client *VirtualMachineScaleSetsClient) NewListPager(resourceGroupName string, options *VirtualMachineScaleSetsClientListOptions) *runtime.Pager[VirtualMachineScaleSetsClientListResponse] {
+func (client *VirtualMachineScaleSetsClient) NewListPager(resourceGroupName string, options *VirtualMachineScaleSetsClientListOptions) (*runtime.Pager[VirtualMachineScaleSetsClientListResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachineScaleSetsClientListResponse]{
 		More: func(page VirtualMachineScaleSetsClientListResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachineScaleSetsClientListResponse) (VirtualMachineScaleSetsClientListResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -772,13 +772,13 @@ func (client *VirtualMachineScaleSetsClient) listHandleResponse(resp *http.Respo
 // Generated from API version 2023-03-01
 //   - options - VirtualMachineScaleSetsClientListAllOptions contains the optional parameters for the VirtualMachineScaleSetsClient.NewListAllPager
 //     method.
-func (client *VirtualMachineScaleSetsClient) NewListAllPager(options *VirtualMachineScaleSetsClientListAllOptions) *runtime.Pager[VirtualMachineScaleSetsClientListAllResponse] {
+func (client *VirtualMachineScaleSetsClient) NewListAllPager(options *VirtualMachineScaleSetsClientListAllOptions) (*runtime.Pager[VirtualMachineScaleSetsClientListAllResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachineScaleSetsClientListAllResponse]{
 		More: func(page VirtualMachineScaleSetsClientListAllResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachineScaleSetsClientListAllResponse) (VirtualMachineScaleSetsClientListAllResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListAllPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListAllPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -835,13 +835,13 @@ func (client *VirtualMachineScaleSetsClient) listAllHandleResponse(resp *http.Re
 //   - location - The location for which VM scale sets under the subscription are queried.
 //   - options - VirtualMachineScaleSetsClientListByLocationOptions contains the optional parameters for the VirtualMachineScaleSetsClient.NewListByLocationPager
 //     method.
-func (client *VirtualMachineScaleSetsClient) NewListByLocationPager(location string, options *VirtualMachineScaleSetsClientListByLocationOptions) *runtime.Pager[VirtualMachineScaleSetsClientListByLocationResponse] {
+func (client *VirtualMachineScaleSetsClient) NewListByLocationPager(location string, options *VirtualMachineScaleSetsClientListByLocationOptions) (*runtime.Pager[VirtualMachineScaleSetsClientListByLocationResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachineScaleSetsClientListByLocationResponse]{
 		More: func(page VirtualMachineScaleSetsClientListByLocationResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachineScaleSetsClientListByLocationResponse) (VirtualMachineScaleSetsClientListByLocationResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListByLocationPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListByLocationPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -904,13 +904,13 @@ func (client *VirtualMachineScaleSetsClient) listByLocationHandleResponse(resp *
 //   - vmScaleSetName - The name of the VM scale set.
 //   - options - VirtualMachineScaleSetsClientListSKUsOptions contains the optional parameters for the VirtualMachineScaleSetsClient.NewListSKUsPager
 //     method.
-func (client *VirtualMachineScaleSetsClient) NewListSKUsPager(resourceGroupName string, vmScaleSetName string, options *VirtualMachineScaleSetsClientListSKUsOptions) *runtime.Pager[VirtualMachineScaleSetsClientListSKUsResponse] {
+func (client *VirtualMachineScaleSetsClient) NewListSKUsPager(resourceGroupName string, vmScaleSetName string, options *VirtualMachineScaleSetsClientListSKUsOptions) (*runtime.Pager[VirtualMachineScaleSetsClientListSKUsResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[VirtualMachineScaleSetsClientListSKUsResponse]{
 		More: func(page VirtualMachineScaleSetsClientListSKUsResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *VirtualMachineScaleSetsClientListSKUsResponse) (VirtualMachineScaleSetsClientListSKUsResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListSKUsPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "VirtualMachineScaleSetsClient.NewListSKUsPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -1044,8 +1044,8 @@ func (client *VirtualMachineScaleSetsClient) performMaintenanceCreateRequest(ctx
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1129,8 +1129,8 @@ func (client *VirtualMachineScaleSetsClient) powerOffCreateRequest(ctx context.C
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1283,8 +1283,8 @@ func (client *VirtualMachineScaleSetsClient) redeployCreateRequest(ctx context.C
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1365,8 +1365,8 @@ func (client *VirtualMachineScaleSetsClient) reimageCreateRequest(ctx context.Co
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMScaleSetReimageInput != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMScaleSetReimageInput); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1445,8 +1445,8 @@ func (client *VirtualMachineScaleSetsClient) reimageAllCreateRequest(ctx context
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1523,8 +1523,8 @@ func (client *VirtualMachineScaleSetsClient) restartCreateRequest(ctx context.Co
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1601,8 +1601,8 @@ func (client *VirtualMachineScaleSetsClient) setOrchestrationServiceStateCreateR
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -1677,8 +1677,8 @@ func (client *VirtualMachineScaleSetsClient) startCreateRequest(ctx context.Cont
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if options != nil && options.VMInstanceIDs != nil {
 		if err := runtime.MarshalAsJSON(req, *options.VMInstanceIDs); err != nil {
-			return nil, err
-		}
+	return nil, err
+}
 		return req, nil
 	}
 	return req, nil
@@ -1755,8 +1755,8 @@ func (client *VirtualMachineScaleSetsClient) updateCreateRequest(ctx context.Con
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -1831,7 +1831,8 @@ func (client *VirtualMachineScaleSetsClient) updateInstancesCreateRequest(ctx co
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, vmInstanceIDs); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
+

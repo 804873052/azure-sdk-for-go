@@ -23,7 +23,7 @@ import (
 // DisksClient contains the methods for the Disks group.
 // Don't use this type directly, use NewDisksClient() instead.
 type DisksClient struct {
-	internal       *arm.Client
+	internal *arm.Client
 	subscriptionID string
 }
 
@@ -39,7 +39,7 @@ func NewDisksClient(subscriptionID string, credential azcore.TokenCredential, op
 	}
 	client := &DisksClient{
 		subscriptionID: subscriptionID,
-		internal:       cl,
+	internal: cl,
 	}
 	return client, nil
 }
@@ -117,8 +117,8 @@ func (client *DisksClient) createOrUpdateCreateRequest(ctx context.Context, reso
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, disk); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -334,8 +334,8 @@ func (client *DisksClient) grantAccessCreateRequest(ctx context.Context, resourc
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, grantAccessData); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -343,13 +343,13 @@ func (client *DisksClient) grantAccessCreateRequest(ctx context.Context, resourc
 //
 // Generated from API version 2023-01-02
 //   - options - DisksClientListOptions contains the optional parameters for the DisksClient.NewListPager method.
-func (client *DisksClient) NewListPager(options *DisksClientListOptions) *runtime.Pager[DisksClientListResponse] {
+func (client *DisksClient) NewListPager(options *DisksClientListOptions) (*runtime.Pager[DisksClientListResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[DisksClientListResponse]{
 		More: func(page DisksClientListResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *DisksClientListResponse) (DisksClientListResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DisksClient.NewListPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DisksClient.NewListPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -406,13 +406,13 @@ func (client *DisksClient) listHandleResponse(resp *http.Response) (DisksClientL
 //   - resourceGroupName - The name of the resource group.
 //   - options - DisksClientListByResourceGroupOptions contains the optional parameters for the DisksClient.NewListByResourceGroupPager
 //     method.
-func (client *DisksClient) NewListByResourceGroupPager(resourceGroupName string, options *DisksClientListByResourceGroupOptions) *runtime.Pager[DisksClientListByResourceGroupResponse] {
+func (client *DisksClient) NewListByResourceGroupPager(resourceGroupName string, options *DisksClientListByResourceGroupOptions) (*runtime.Pager[DisksClientListByResourceGroupResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[DisksClientListByResourceGroupResponse]{
 		More: func(page DisksClientListByResourceGroupResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *DisksClientListByResourceGroupResponse) (DisksClientListByResourceGroupResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DisksClient.NewListByResourceGroupPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DisksClient.NewListByResourceGroupPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -613,7 +613,8 @@ func (client *DisksClient) updateCreateRequest(ctx context.Context, resourceGrou
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, disk); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
+

@@ -1767,7 +1767,7 @@ func ExampleDisksClient_Get() {
 	// 			AcceleratedNetwork: to.Ptr(true),
 	// 		},
 	// 		SupportsHibernation: to.Ptr(true),
-	// 		TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:35.079872+00:00"); return t}()),
+	// 		TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:35.079Z"); return t}()),
 	// 	},
 	// 	SKU: &armcompute.DiskSKU{
 	// 		Name: to.Ptr(armcompute.DiskStorageAccountTypesStandardLRS),
@@ -1858,7 +1858,7 @@ func ExampleDisksClient_NewListByResourceGroupPager() {
 		// 				},
 		// 				OSType: to.Ptr(armcompute.OperatingSystemTypesWindows),
 		// 				ProvisioningState: to.Ptr("Succeeded"),
-		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:35.9278721+00:00"); return t}()),
+		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:35.927Z"); return t}()),
 		// 			},
 		// 		},
 		// 		{
@@ -1876,7 +1876,7 @@ func ExampleDisksClient_NewListByResourceGroupPager() {
 		// 				},
 		// 				OSType: to.Ptr(armcompute.OperatingSystemTypesWindows),
 		// 				ProvisioningState: to.Ptr("Succeeded"),
-		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.872242+00:00"); return t}()),
+		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.872Z"); return t}()),
 		// 			},
 		// 		},
 		// 		{
@@ -1919,7 +1919,7 @@ func ExampleDisksClient_NewListByResourceGroupPager() {
 		// 				},
 		// 				OSType: to.Ptr(armcompute.OperatingSystemTypesWindows),
 		// 				ProvisioningState: to.Ptr("Succeeded"),
-		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.3973934+00:00"); return t}()),
+		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.397Z"); return t}()),
 		// 			},
 		// 	}},
 		// }
@@ -1988,7 +1988,7 @@ func ExampleDisksClient_NewListPager() {
 		// 				},
 		// 				OSType: to.Ptr(armcompute.OperatingSystemTypesWindows),
 		// 				ProvisioningState: to.Ptr("Succeeded"),
-		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:35.9278721+00:00"); return t}()),
+		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:35.927Z"); return t}()),
 		// 			},
 		// 		},
 		// 		{
@@ -2006,7 +2006,7 @@ func ExampleDisksClient_NewListPager() {
 		// 				},
 		// 				OSType: to.Ptr(armcompute.OperatingSystemTypesWindows),
 		// 				ProvisioningState: to.Ptr("Succeeded"),
-		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.872242+00:00"); return t}()),
+		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.872Z"); return t}()),
 		// 			},
 		// 		},
 		// 		{
@@ -2049,7 +2049,7 @@ func ExampleDisksClient_NewListPager() {
 		// 				},
 		// 				OSType: to.Ptr(armcompute.OperatingSystemTypesWindows),
 		// 				ProvisioningState: to.Ptr("Succeeded"),
-		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.3973934+00:00"); return t}()),
+		// 				TimeCreated: to.Ptr(func() time.Time { t, _ := time.Parse(time.RFC3339Nano, "2016-12-28T04:41:36.397Z"); return t}()),
 		// 			},
 		// 	}},
 		// }

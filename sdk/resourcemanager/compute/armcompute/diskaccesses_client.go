@@ -23,7 +23,7 @@ import (
 // DiskAccessesClient contains the methods for the DiskAccesses group.
 // Don't use this type directly, use NewDiskAccessesClient() instead.
 type DiskAccessesClient struct {
-	internal       *arm.Client
+	internal *arm.Client
 	subscriptionID string
 }
 
@@ -39,7 +39,7 @@ func NewDiskAccessesClient(subscriptionID string, credential azcore.TokenCredent
 	}
 	client := &DiskAccessesClient{
 		subscriptionID: subscriptionID,
-		internal:       cl,
+	internal: cl,
 	}
 	return client, nil
 }
@@ -117,8 +117,8 @@ func (client *DiskAccessesClient) createOrUpdateCreateRequest(ctx context.Contex
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, diskAccess); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -484,13 +484,13 @@ func (client *DiskAccessesClient) getPrivateLinkResourcesHandleResponse(resp *ht
 //
 // Generated from API version 2023-01-02
 //   - options - DiskAccessesClientListOptions contains the optional parameters for the DiskAccessesClient.NewListPager method.
-func (client *DiskAccessesClient) NewListPager(options *DiskAccessesClientListOptions) *runtime.Pager[DiskAccessesClientListResponse] {
+func (client *DiskAccessesClient) NewListPager(options *DiskAccessesClientListOptions) (*runtime.Pager[DiskAccessesClientListResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[DiskAccessesClientListResponse]{
 		More: func(page DiskAccessesClientListResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *DiskAccessesClientListResponse) (DiskAccessesClientListResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DiskAccessesClient.NewListPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DiskAccessesClient.NewListPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -547,13 +547,13 @@ func (client *DiskAccessesClient) listHandleResponse(resp *http.Response) (DiskA
 //   - resourceGroupName - The name of the resource group.
 //   - options - DiskAccessesClientListByResourceGroupOptions contains the optional parameters for the DiskAccessesClient.NewListByResourceGroupPager
 //     method.
-func (client *DiskAccessesClient) NewListByResourceGroupPager(resourceGroupName string, options *DiskAccessesClientListByResourceGroupOptions) *runtime.Pager[DiskAccessesClientListByResourceGroupResponse] {
+func (client *DiskAccessesClient) NewListByResourceGroupPager(resourceGroupName string, options *DiskAccessesClientListByResourceGroupOptions) (*runtime.Pager[DiskAccessesClientListByResourceGroupResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[DiskAccessesClientListByResourceGroupResponse]{
 		More: func(page DiskAccessesClientListByResourceGroupResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *DiskAccessesClientListByResourceGroupResponse) (DiskAccessesClientListByResourceGroupResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DiskAccessesClient.NewListByResourceGroupPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DiskAccessesClient.NewListByResourceGroupPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -617,13 +617,13 @@ func (client *DiskAccessesClient) listByResourceGroupHandleResponse(resp *http.R
 //     maximum name length is 80 characters.
 //   - options - DiskAccessesClientListPrivateEndpointConnectionsOptions contains the optional parameters for the DiskAccessesClient.NewListPrivateEndpointConnectionsPager
 //     method.
-func (client *DiskAccessesClient) NewListPrivateEndpointConnectionsPager(resourceGroupName string, diskAccessName string, options *DiskAccessesClientListPrivateEndpointConnectionsOptions) *runtime.Pager[DiskAccessesClientListPrivateEndpointConnectionsResponse] {
+func (client *DiskAccessesClient) NewListPrivateEndpointConnectionsPager(resourceGroupName string, diskAccessName string, options *DiskAccessesClientListPrivateEndpointConnectionsOptions) (*runtime.Pager[DiskAccessesClientListPrivateEndpointConnectionsResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[DiskAccessesClientListPrivateEndpointConnectionsResponse]{
 		More: func(page DiskAccessesClientListPrivateEndpointConnectionsResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *DiskAccessesClientListPrivateEndpointConnectionsResponse) (DiskAccessesClientListPrivateEndpointConnectionsResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DiskAccessesClient.NewListPrivateEndpointConnectionsPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "DiskAccessesClient.NewListPrivateEndpointConnectionsPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -755,8 +755,8 @@ func (client *DiskAccessesClient) updateCreateRequest(ctx context.Context, resou
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, diskAccess); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -841,7 +841,8 @@ func (client *DiskAccessesClient) updateAPrivateEndpointConnectionCreateRequest(
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, privateEndpointConnection); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
+

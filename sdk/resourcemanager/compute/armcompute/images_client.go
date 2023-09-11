@@ -23,7 +23,7 @@ import (
 // ImagesClient contains the methods for the Images group.
 // Don't use this type directly, use NewImagesClient() instead.
 type ImagesClient struct {
-	internal       *arm.Client
+	internal *arm.Client
 	subscriptionID string
 }
 
@@ -39,7 +39,7 @@ func NewImagesClient(subscriptionID string, credential azcore.TokenCredential, o
 	}
 	client := &ImagesClient{
 		subscriptionID: subscriptionID,
-		internal:       cl,
+	internal: cl,
 	}
 	return client, nil
 }
@@ -115,8 +115,8 @@ func (client *ImagesClient) createOrUpdateCreateRequest(ctx context.Context, res
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
 
@@ -263,13 +263,13 @@ func (client *ImagesClient) getHandleResponse(resp *http.Response) (ImagesClient
 //
 // Generated from API version 2023-03-01
 //   - options - ImagesClientListOptions contains the optional parameters for the ImagesClient.NewListPager method.
-func (client *ImagesClient) NewListPager(options *ImagesClientListOptions) *runtime.Pager[ImagesClientListResponse] {
+func (client *ImagesClient) NewListPager(options *ImagesClientListOptions) (*runtime.Pager[ImagesClientListResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[ImagesClientListResponse]{
 		More: func(page ImagesClientListResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *ImagesClientListResponse) (ImagesClientListResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "ImagesClient.NewListPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "ImagesClient.NewListPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -326,13 +326,13 @@ func (client *ImagesClient) listHandleResponse(resp *http.Response) (ImagesClien
 //   - resourceGroupName - The name of the resource group.
 //   - options - ImagesClientListByResourceGroupOptions contains the optional parameters for the ImagesClient.NewListByResourceGroupPager
 //     method.
-func (client *ImagesClient) NewListByResourceGroupPager(resourceGroupName string, options *ImagesClientListByResourceGroupOptions) *runtime.Pager[ImagesClientListByResourceGroupResponse] {
+func (client *ImagesClient) NewListByResourceGroupPager(resourceGroupName string, options *ImagesClientListByResourceGroupOptions) (*runtime.Pager[ImagesClientListByResourceGroupResponse]) {
 	return runtime.NewPager(runtime.PagingHandler[ImagesClientListByResourceGroupResponse]{
 		More: func(page ImagesClientListByResourceGroupResponse) bool {
 			return page.NextLink != nil && len(*page.NextLink) > 0
 		},
 		Fetcher: func(ctx context.Context, page *ImagesClientListByResourceGroupResponse) (ImagesClientListByResourceGroupResponse, error) {
-			ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "ImagesClient.NewListByResourceGroupPager")
+	ctx = context.WithValue(ctx, runtime.CtxAPINameKey{}, "ImagesClient.NewListByResourceGroupPager")
 			var req *policy.Request
 			var err error
 			if page == nil {
@@ -457,7 +457,8 @@ func (client *ImagesClient) updateCreateRequest(ctx context.Context, resourceGro
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	req.Raw().Header["Accept"] = []string{"application/json"}
 	if err := runtime.MarshalAsJSON(req, parameters); err != nil {
-		return nil, err
-	}
+	return nil, err
+}
 	return req, nil
 }
+
