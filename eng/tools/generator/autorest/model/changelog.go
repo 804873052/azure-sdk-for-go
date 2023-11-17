@@ -132,6 +132,10 @@ func getNewContents(c *delta.Content) []string {
 		newTypeAlias := make(map[string][]string)
 		existedTypeAlias := make(map[string][]string)
 		for _, k := range sortChangeItem(c.Consts) {
+			if k == "aaaamyfake" {
+				items = append(items, "Support for test fakes and OpenTelemetry trace spans.")
+				continue
+			}
 			cs := c.Consts[k]
 			if _, ok := c.TypeAliases[cs.Type]; ok {
 				if alias, ok := newTypeAlias[cs.Type]; ok {

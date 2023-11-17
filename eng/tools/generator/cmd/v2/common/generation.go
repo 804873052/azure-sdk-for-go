@@ -239,6 +239,9 @@ func (ctx *GenerateContext) GenerateForSingleRPNamespace(generateParam *Generate
 	log.Printf("filter changelog...")
 	FilterChangelog(changelog, NonExportedFilter, MarshalUnmarshalFilter, EnumFilter, FuncFilter, LROFilter, PageableFilter, InterfaceToAnyFilter)
 
+	// myfake
+	changelog.Modified.AdditiveChanges.Consts["aaaamyfake"] = exports.Const{}
+
 	var prl PullRequestLabel
 	if onBoard {
 		log.Printf("Replace {{NewClientName}} placeholder in the README.md ")
