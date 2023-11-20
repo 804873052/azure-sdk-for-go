@@ -15,6 +15,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/eng/tools/generator/cmd/template"
 	"github.com/Azure/azure-sdk-for-go/eng/tools/generator/common"
 	"github.com/Azure/azure-sdk-for-go/eng/tools/generator/repo"
+	"github.com/Azure/azure-sdk-for-go/eng/tools/internal/delta"
 	"github.com/Azure/azure-sdk-for-go/eng/tools/internal/exports"
 	"github.com/Masterminds/semver"
 )
@@ -240,6 +241,11 @@ func (ctx *GenerateContext) GenerateForSingleRPNamespace(generateParam *Generate
 	FilterChangelog(changelog, NonExportedFilter, MarshalUnmarshalFilter, EnumFilter, FuncFilter, LROFilter, PageableFilter, InterfaceToAnyFilter)
 
 	// myfake
+	if changelog.Modified.AdditiveChanges == nil {
+		changelog.Modified.AdditiveChanges = &delta.Content{
+			Content: exports.NewContent(),
+		}
+	}
 	changelog.Modified.AdditiveChanges.Consts["aaaamyfake"] = exports.Const{}
 
 	var prl PullRequestLabel
