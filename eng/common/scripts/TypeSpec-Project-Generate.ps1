@@ -15,9 +15,13 @@ $ErrorActionPreference = "Stop"
 . $PSScriptRoot/common.ps1
 Install-ModuleIfNotInstalled "powershell-yaml" "0.4.1" | Import-Module
 
+function Get-go-EmitterName(){
+    return "@azure-tools/typespec-go"  
+}
+
 function NpmInstallForProject([string]$workingDirectory) {
     Push-Location $workingDirectory
-    try {
+    try { 
         $currentDur = Resolve-Path "."
         Write-Host "Generating from $currentDur"
 

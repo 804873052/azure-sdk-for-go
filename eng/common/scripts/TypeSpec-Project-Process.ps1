@@ -62,6 +62,12 @@ function CreateUpdate-TspLocation([System.Object]$tspConfig, [string]$TypeSpecPr
   return $packageDir
 }
 
+function Get-go-EmitterName(){
+
+  return "@azure-tools/typespec-go"
+}
+
+
 function Get-ServiceDir([System.Object]$tspConfig, [string]$repoRoot) {
   $serviceDir = ""
   if ($tspConfig["parameters"] -and $tspConfig["parameters"]["service-dir"]) {

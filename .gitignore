@@ -56,3 +56,5 @@ vendor/
 
 # Default Test Proxy tools install directory
 .proxy
+
+# TempTypeSpecFiles/
