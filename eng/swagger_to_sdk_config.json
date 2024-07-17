@@ -12,7 +12,8 @@
   },
   "advancedOptions": {
     "cloneDir": "src/github.com/Azure/azure-sdk-for-go",
-    "breakingChangeTracking": true
+    "breakingChangeTracking": true,
+    "generationCallMode": "one-per-config"
   },
   "initOptions": {
     "initScript": {
