@@ -11,7 +11,6 @@ if [ "$2" ]; then
   outputFile=$2
 fi
 
-set -x
 set -e
 outputFile="$(realpath $outputFile)"
 echo "output json file: $outputFile"
